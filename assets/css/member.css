@@ -1,0 +1,74 @@
+#member .section-heading {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+/* adviser box of member */
+.adviser-box {
+    margin-bottom: 10px;
+}
+.adviser-box div {
+    padding: 5px 0px 5px 0px;
+}
+.adviser-box img {
+    max-height: 140px;
+    max-width: 110px;
+    margin-right: 20px;
+}
+.adviser-box .fa {
+    margin-right: 5px;
+}
+
+/* student box of member */
+.student-box {
+    margin-bottom: 15px;
+}
+.student-box img {
+    max-height: 130px;
+    max-width: 80px;
+}
+.student-box p{
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.student-box .fa {
+    margin-right: 2px;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align: center;
+}
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+@media screen and (max-width: 768px){
+    .adviser-box,
+    .student-box {
+        margin-top: 18px;
+        text-align: center;
+    }
+    .adviser-box img,
+    .student-box img {
+        margin-bottom: 5px;
+    }
+    .adviser-box p,
+    .student-box p {
+        margin-bottom: 8px;
+        line-height: 16px;
+    }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px){
+    .adviser-box,
+    .student-box {
+        padding-left: 50px;
+    }
+}

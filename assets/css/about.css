@@ -1,0 +1,16 @@
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+#about .section-heading p {
+    margin-bottom: 0px;
+}
+
+.about-content {
+    line-height: 30px;
+}
+
+.about-img {
+    padding-top: 20px;
+}
