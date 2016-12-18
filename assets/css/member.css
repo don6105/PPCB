@@ -11,9 +11,14 @@
     padding: 5px 0px 5px 0px;
 }
 .adviser-box img {
-    max-height: 140px;
-    max-width: 110px;
-    margin-right: 20px;
+    max-height: 150px;
+    max-width: 130px;
+    margin-left: 5px;
+}
+.adviser-box p {
+    margin-top: 13px;
+    margin-bottom: 13px;
+    font-size: 18px;
 }
 .adviser-box .fa {
     margin-right: 5px;
@@ -21,17 +26,19 @@
 
 /* student box of member */
 .student-box {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    min-height: 130px;
 }
 .student-box img {
     max-height: 130px;
-    max-width: 80px;
+    max-width: 100px;
 }
 .student-box p{
-    font-size: 14px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 7px;
     margin-bottom: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .student-box .fa {
     margin-right: 2px;
@@ -64,11 +71,5 @@
     .student-box p {
         margin-bottom: 8px;
         line-height: 16px;
-    }
-}
-@media screen and (max-width: 1024px) and (min-width: 768px){
-    .adviser-box,
-    .student-box {
-        padding-left: 50px;
     }
 }

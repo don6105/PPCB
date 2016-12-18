@@ -1,18 +1,20 @@
-<div class="row row-centered">
-    <div class="col-lg-12 text-center">
+<div class="row">
+    <div class="col-lg-11 col-lg-offset-1">
         <h3 class="section-heading">{level} Student</h3>
     </div>
 
-    {member}
-    <div class="col-md-6 col-lg-4 student-box col-centered">
-        <div class="col-md-3">
-            <img src="<?=base_url()?>{m_img}">
+    <div class="col-lg-11 col-lg-offset-1">
+        {member}
+        <div class="col-md-6 student-box">
+            <div class="col-md-3">
+                <img src="<?=base_url()?>{m_img}">
+            </div>
+            <div class="col-md-9">
+                <p><i class="fa fa-user-circle fa-fw" aria-hidden="true"></i> {m_name_en} ({m_name}) </p>
+                <p><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> {m_mail} </p>
+                <p><i class="fa fa-graduation-cap fa-fw" aria-hidden="true"></i> {m_edu_level} Student {m_edu_year} </p>
+            </div>
         </div>
-        <div class="col-md-9">
-            <p><i class="fa fa-user-circle" aria-hidden="true"></i> {m_name_en} ({m_name}) </p>
-            <p><i class="fa fa-envelope" aria-hidden="true"></i> {m_mail} </p>
-            <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> {m_edu_level} Student {m_edu_year} </p>
-        </div>
+        {/member}
     </div>
-    {/member}
 </div>

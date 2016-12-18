@@ -484,3 +484,32 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
+
+#design {
+  background-color: #222222;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+#design .copyright {
+  color: #FFF;
+  font-size: 1.1em;
+  letter-spacing: 0.21em;
+  list-style: none;
+  padding: 0;
+  display: block;
+  font-weight: 500;
+}
+#design .copyright li {
+  display: inline-block;
+}
+#design .copyright li:first-child {
+  margin-left: 35px;
+  margin-right: 15px;
+}
+#design .copyright li:nth-child(2) {
+  border-left: solid 1px rgb(255, 255, 255);
+  padding-left: 25px;
+}
+#design .copyright a {
+  color: rgb(210, 210, 210);
+}
