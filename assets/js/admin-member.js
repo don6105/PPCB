@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-    var row = "";
+    var row = "", name = "";
 
     if(location.href.indexOf("admin/member")>-1) {
 
@@ -13,6 +13,9 @@ $( document ).ready(function() {
             var edu_level_value = $(this).val();
             $(this).parent("td").find("[name='edu_level_value']").val(edu_level_value);
         });
+
+        // unbind default submit action
+        $("form").submit(function() { return false; })
 
         // Member List onchange function
         $("tr").hover( function() {
@@ -27,7 +30,6 @@ $( document ).ready(function() {
                    .removeAttr("data-placement")
                    .removeAttr("data-original-title");
         });
-
 
         // New member data
         $("#new_apply_btn").on("click", function() {
@@ -98,12 +100,22 @@ $( document ).ready(function() {
                                             $("<button>")
                                                 .addClass('btn btn-danger btn-md')
                                                 .attr("data-toggle", "modal")
-                                                .attr("data-target", "#trash_member")
+                                                .attr("data-target", "#trash_member_modal")
                                                 .attr("name", "trash_btn")
                                                 .html("<i class='fa fa-trash' aria-hidden='true'></i> Trash")
                                                 .on("click", function() {
                                                     row = $(this).parents("tr").attr("id");
                                                 })
+                                            ).append(
+                                                $("<button>")
+                                                    .addClass('btn btn-primary btn-md')
+                                                    .attr("data-toggle", "modal")
+                                                    .attr("data-target", "#pwd_modal")
+                                                    .attr("name", "pwd_btn")
+                                                    .html("<i class='fa fa-key' aria-hidden='true'></i> Pwd")
+                                                    .on("click", function() {
+                                                        row = $(this).parents("tr").attr("id");
+                                                    })
                                             )
                                         )
                                 );
@@ -116,7 +128,7 @@ $( document ).ready(function() {
                     complete: function() {
                        setTimeout(function() {
                             $("#new_result_msg").html("");
-                            $("#new_member").modal("hide");
+                            $("#new_member_modal").modal("hide");
                         }, 1500);
                     }
                 });
@@ -132,14 +144,11 @@ $( document ).ready(function() {
                 member_list_change(row);
             }
         });
-        $("[name='edu_level_value']").on("change", function() {
+        $("[name='edu_level_value'], [name='permission_value']").on("change", function() {
             var row = this.parentElement.parentElement.id;
             member_list_change(row);
         });
-        $("[name='permission_value']").on("change", function() {
-            var row = this.parentElement.parentElement.id;
-            member_list_change(row);
-        });
+
 
         function member_list_change(row) {
             $row           = $("#"+row);
@@ -151,7 +160,7 @@ $( document ).ready(function() {
             var level      = $row.find("[name='edu_level_value']").val();
             var year       = $row.find("[name='edu_year_value']").text().trim();
             var permission = $row.find("[name='permission_value']").val();
-            // console.log("id="+id+", name="+name+", name_en="+name_en+" ,mail="+mail+" ,level="+level+" ,year="+year+" ,permission="+permission);
+
             if( typeof site_url !== "undefined" ) {
                 $.post( site_url+"/mod_member", {id: id, name: name, name_en: name_en, mail: mail, level: level, year: year, permission: permission}, function(data) {
                     if(data.indexOf("Success")>-1) {
@@ -179,8 +188,15 @@ $( document ).ready(function() {
             }
         } // end of member_list_change
 
-        $("[name='trash_btn']").on("click", function() {
-            row = $(this).parents("tr").attr("id");
+        $("[name='trash_btn'], [name='pwd_btn']").on("click", function() {
+            row  = $(this).parents("tr").attr("id");
+            name = $("#"+row+" [name='name_value']").text().trim();
+            $("#pwd_username").text(name);
+        });
+
+        $("#trash_cancel_btn, #pwd_cancel_btn").on("click" , function() {
+            row  = "";
+            name = "";
         });
 
         $("#trash_apply_btn").on("click", function() {
@@ -201,13 +217,30 @@ $( document ).ready(function() {
             .always(function() {
                 setTimeout(function() {
                     $("#trash_result_msg").html("");
-                    $("#trash_member").modal("hide");
+                    $("#trash_member_modal").modal("hide");
                 }, 1500);
             });
         });
 
-        $("#trash_cancel_btn").on("click" , function() {
-            row = "";
+        $("#pwd_apply_btn").on("click", function() {
+            $.post(site_url+"/change_pwd", {row: row, pwd: $("#change_pwd").val() }, function(data) {
+                if(data.indexOf("Success")>-1) {
+                    $("#pwd_result_msg").html("<font color='green' size='3'>Success</font>");
+                }
+                else {
+                    $("#pwd_result_msg").html("<font color='red' size='3'>Failed</font>");
+                }
+            })
+            .fail(function() {
+                $("#pwd_result_msg").html("<font color='red' size='3'>Failed</font>");
+            })
+            .always(function() {
+                setTimeout(function() {
+                    $("#pwd_result_msg").html("");
+                    $("#pwd_form").trigger('reset');
+                    $("#pwd_modal").modal("hide");
+                }, 1500);
+            });
         });
 
     } // end of if(location.href)

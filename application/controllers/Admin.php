@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
         $this->load->library('parser');
         $this->load->model('admin/member_model');
+        $this->load->model('admin/course_model');
 
 		$this->load->view('admin/admin_header');
 		$this->load->view('admin/admin_nav');
@@ -28,6 +29,8 @@ class Admin extends CI_Controller {
     }
 
     public function course() {
+        $data = $this->course_model->get_course();
+        $this->parser->parse('admin/template/course_template', $data);
         $this->load->view('admin/admin_footer');
     }
 }

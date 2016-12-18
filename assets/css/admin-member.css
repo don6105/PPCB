@@ -20,14 +20,17 @@ tr, th, td {
     color: green;
 }
 
-#new_member_form > div {
-    margin-top: 6px;
-    margin-bottom: 6px;
+#new_member_form .col-md-2 {
+    margin-top: 7px;
+    margin-bottom: 15px;
+    padding-left: 20px;
 }
-#new_member_form > div label {
-    padding-top: 6px;
-    padding-left: 15px;
+
+#pwd_form .col-md-2, #pwd_username {
+    margin-top: 7px;
+    text-align: center;
 }
+
 
 .table {
     background-color: rgb(240, 240, 240);
