@@ -2,7 +2,7 @@
     <div class="row">
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-users" aria-hidden="true"></i> Member
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i> Course
             </li>
         </ol>
     </div>
@@ -13,7 +13,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title text-center">Trash Member</h4>
+            <h4 class="modal-title text-center">Trash Course</h4>
           </div>
           <div class="modal-body text-center">
             <h3>
@@ -51,19 +51,19 @@
                     <div class="col-md-12">
                         <label class="col-md-2">Year</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="mail" placeholder="course year">
+                            <input type="text" class="form-control" name="year" placeholder="course year">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-2">Course</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="pwd" placeholder="course name">
+                            <input type="text" class="form-control" name="name" placeholder="course name">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-2">Link</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="pwd" placeholder="website url">
+                            <input type="text" class="form-control" name="link" placeholder="http://website.url">
                         </div>
                     </div>
                 </form>
@@ -105,9 +105,9 @@
                 </tr>
                 {course}
                 <tr id="c_{c_id}">
-                    <td class="col-md-2" contenteditable="true" name="year_value"> {c_year} </td>
-                    <td class="col-md-3" contenteditable="true" name="name_value"> {c_name} </td>
-                    <td class="col-md-5" contenteditable="true" name="link_value"> {c_link} </td>
+                    <td class="col-md-2" name="year_value"> {c_year} </td>
+                    <td class="col-md-3" name="name_value"> {c_name} </td>
+                    <td class="col-md-5" name="link_value"> {c_link} </td>
                     <td class="col-md-2">
                         <botton class="btn btn-danger btn-md" data-toggle="modal" data-target="#trash_course_modal" name="trash_btn">
                             <i class="fa fa-trash" aria-hidden="true"></i> Trash

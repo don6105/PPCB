@@ -1,23 +1,13 @@
 $( document ).ready(function() {
 
-    var row = "", name = "";
-
     if(location.href.indexOf("admin/member")>-1) {
+        var row = "", name = "";
 
-        // set Member Template default select value
-        $("[name='hidden_permission']").each(function() {
-            var permission_value = $(this).val();
-            $(this).parent("td").find("[name='permission_value']").val(permission_value);
-        });
-        $("[name='hidden_edu_level']").each(function() {
-            var edu_level_value = $(this).val();
-            $(this).parent("td").find("[name='edu_level_value']").val(edu_level_value);
-        });
-
+        // init select value, set Member Template default select value
+        $("[name='hidden_permission'], [name='hidden_edu_level']").each(function() { $(this).parent("td").find("select").val( $(this).val() ); });
         // unbind default submit action
         $("form").submit(function() { return false; })
-
-        // Member List onchange function
+        // hover tooltip
         $("tr").hover( function() {
             $(this).attr("data-container", "body")
                    .attr("data-toggle", "tooltip")
@@ -31,6 +21,10 @@ $( document ).ready(function() {
                    .removeAttr("data-original-title");
         });
 
+
+        /*************************************
+         *             new member            *
+         *************************************/
         // New member data
         $("#new_apply_btn").on("click", function() {
             var empty_check = 1;
@@ -41,8 +35,7 @@ $( document ).ready(function() {
                 }
             });
 
-            // if(empty_check==1 {
-            if(true) {
+            if(empty_check==1) {
                 var formData = new FormData( $("#new_member_form")[0] );
                 $.ajax({
                     url : site_url+"/new_member",  // Controller URL
@@ -56,22 +49,21 @@ $( document ).ready(function() {
                         var obj = JSON && JSON.parse(data) || $.parseJSON(data);
                         if(obj.result.indexOf("Failed")>-1) {
                             $("#new_result_msg").html("<font color='red' size='3'>Failed</font>");
-                        }
-                        else {
+                        } else {
                             $("#new_result_msg").html("<font color='green' size='3'>Success</font>");
                             $("#member_list").append(
                                 $("<tr>")
                                     .attr("id", "m_"+obj.id)
                                     .append(
-                                        $("<td>").addClass('col-md-2').append(
+                                        $("<td>").addClass('col-md-1').append(
                                             $("<img>").attr("src", "../../"+obj.img).addClass('member-img')
                                             )
                                         )
                                     .append(
-                                        $("<td>").addClass('col-md-2').attr("name", "name_value").text( $("[name='name_en']").val()+" ("+$("[name='name']").val()+")" )
+                                        $("<td>").addClass('col-md-2').attr("name", "name_value").text( $("[name='name_en']").val()+" ("+$("[name='name']").val()+")" ).attr("contenteditable", true)
                                         )
                                     .append(
-                                        $("<td>").addClass('col-md-4').attr("name", "mail_value").text( $("[name='mail']").val() )
+                                        $("<td>").addClass('col-md-3').attr("name", "mail_value").text( $("[name='mail']").val() ).attr("contenteditable", true)
                                         )
                                     .append(
                                         $("<td>").addClass('col-md-1').append(
@@ -83,7 +75,7 @@ $( document ).ready(function() {
                                             )
                                         )
                                     .append(
-                                        $("<td>").addClass('col-md-1').attr("name", "edu_year_value").text( $("[name='edu_year']").val() )
+                                        $("<td>").addClass('col-md-1').attr("name", "edu_year_value").text( $("[name='edu_year']").val() ).attr("contenteditable", true)
                                         )
                                     .append(
                                         $("<td>").addClass('col-md-1').append(
@@ -96,7 +88,7 @@ $( document ).ready(function() {
                                             )
                                         )
                                     .append(
-                                        $("<td>").addClass('col-md-1').append(
+                                        $("<td>").addClass('col-md-2').append(
                                             $("<button>")
                                                 .addClass('btn btn-danger btn-md')
                                                 .attr("data-toggle", "modal")
@@ -123,10 +115,10 @@ $( document ).ready(function() {
                         }
                     },
                     error: function() {
-                        $("#result_msg").html("<font color='red' size='3'>Failed</font>");
+                        $("#new_result_msg").html("<font color='red' size='3'>Failed</font>");
                     },
                     complete: function() {
-                       setTimeout(function() {
+                        setTimeout(function() {
                             $("#new_result_msg").html("");
                             $("#new_member_modal").modal("hide");
                         }, 1500);
@@ -135,21 +127,20 @@ $( document ).ready(function() {
             }
         });
 
+
+        /*************************************
+         *           change member           *
+         *************************************/
         // Member List onchange function
         $("#member_list td").on("keydown", function(e) {
             if(e.keyCode == 13) {
                 // keyCode of Enter is 13
+                // Enter to save
                 e.preventDefault();
-                var row = $(this).parent("tr").attr("id");
-                member_list_change(row);
+                member_list_change( $(this).parent("tr").attr("id") );
             }
         });
-        $("[name='edu_level_value'], [name='permission_value']").on("change", function() {
-            var row = this.parentElement.parentElement.id;
-            member_list_change(row);
-        });
-
-
+        $("[name='edu_level_value'], [name='permission_value']").on("change", function() { member_list_change( this.parentElement.parentElement.id ); });
         function member_list_change(row) {
             $row           = $("#"+row);
             var id         = $row.attr("id");
@@ -168,8 +159,7 @@ $( document ).ready(function() {
                         setTimeout(function() {
                             $row.removeClass('success');
                         }, 1500);
-                    }
-                    else {
+                    } else {
                         $row.addClass('danger');
                         setTimeout(function() {
                             $row.removeClass('danger');
@@ -182,38 +172,33 @@ $( document ).ready(function() {
                         $row.removeClass('danger');
                     }, 1500);
                 });
-            }
-            else {
+            } else {
                 alert("JavaScript Error.\n\nPlease contact to us by email: don0910129285@gmail.com.");
             }
         } // end of member_list_change
 
+
+        /*************************************
+         *  trash member & change password   *
+         *************************************/
         $("[name='trash_btn'], [name='pwd_btn']").on("click", function() {
             row  = $(this).parents("tr").attr("id");
             name = $("#"+row+" [name='name_value']").text().trim();
             $("#pwd_username").text(name);
         });
-
-        $("#trash_cancel_btn, #pwd_cancel_btn").on("click" , function() {
-            row  = "";
-            name = "";
-        });
-
+        $("#trash_cancel_btn, #pwd_cancel_btn").on("click" , function() { row  = ""; name = ""; $("#pwd_username").text(""); });
+        // trash member
         $("#trash_apply_btn").on("click", function() {
             $.post(site_url+"/trash_member", {row: row }, function(data) {
                 if(data.indexOf("Success")>-1) {
                     $("#trash_result_msg").html("<font color='green' size='3'>Success</font>");
-                    $("#"+row).fadeOut('slow', function() {
-                        $("#"+row).remove();
-                    });
-                }
-                else {
+                    $("#"+row).fadeOut('slow', function() { $("#"+row).remove(); });
+                    row = "";
+                } else {
                     $("#trash_result_msg").html("<font color='red' size='3'>Failed</font>");
                 }
             })
-            .fail(function() {
-                $("#trash_result_msg").html("<font color='red' size='3'>Failed</font>");
-            })
+            .fail(function() { $("#trash_result_msg").html("<font color='red' size='3'>Failed</font>"); })
             .always(function() {
                 setTimeout(function() {
                     $("#trash_result_msg").html("");
@@ -221,19 +206,18 @@ $( document ).ready(function() {
                 }, 1500);
             });
         });
-
+        // change passwd
         $("#pwd_apply_btn").on("click", function() {
             $.post(site_url+"/change_pwd", {row: row, pwd: $("#change_pwd").val() }, function(data) {
                 if(data.indexOf("Success")>-1) {
                     $("#pwd_result_msg").html("<font color='green' size='3'>Success</font>");
-                }
-                else {
+                    row  = "";
+                    name = "";
+                } else {
                     $("#pwd_result_msg").html("<font color='red' size='3'>Failed</font>");
                 }
             })
-            .fail(function() {
-                $("#pwd_result_msg").html("<font color='red' size='3'>Failed</font>");
-            })
+            .fail(function() { $("#pwd_result_msg").html("<font color='red' size='3'>Failed</font>"); })
             .always(function() {
                 setTimeout(function() {
                     $("#pwd_result_msg").html("");

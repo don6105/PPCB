@@ -182,7 +182,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../img/code3.jpg');
+  background-image: url('../img/PPCB/code3.jpg');
   text-align: center;
   color: white;
 }
@@ -318,6 +318,44 @@ header .header-content .header-content-inner p {
 .portfolio-box:focus {
   outline: none;
 }
+
+/* custom by undersky */
+.portfolio-box-caption-inverse {
+  color: white;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.1);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.portfolio-box .portfolio-box-caption-inverse .portfolio-box-caption-content {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 26px;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  padding: 0 15px;
+}
+.portfolio-box:hover .portfolio-box-caption-inverse {
+  opacity: 0;
+}
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+  text-transform: none;
+  width: 70%;
+  margin: 5px auto;
+}
+.text-faded {
+  color: rgba(255, 255, 255, 0.76);
+}
+/* custom by undersky */
 
 @media (min-width: 768px) {
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {

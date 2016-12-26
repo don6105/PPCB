@@ -6,7 +6,7 @@
             <p class="second-index-title">平行處理與計算生物實驗室</p>
             <p class="second-index-title">
                 Parallel Processing、GPU Computing、NGS Applications、<br>
-                Sequence Alignment、Drag Design Researches
+                Sequence Alignment、Drug Design Researches
             </p>
             <a href="#about" class="btn btn-primary btn-xl page-scroll">about</a>
         </div>

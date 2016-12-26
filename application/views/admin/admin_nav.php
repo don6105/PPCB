@@ -38,6 +38,11 @@
                         <i class="fa fa-fw fa-home" aria-hidden="true"></i> Home
                     </a>
                 </li>
+                <li id="resume_dir">
+                    <a href="<?=site_url()?>/admin/resume">
+                        <i class="fa fa-fw fa-user" aria-hidden="true"></i> Resume
+                    </a>
+                </li>
                 <li id="member_dir">
                     <a href="<?=site_url()?>/admin/member">
                         <i class="fa fa-fw fa-users" aria-hidden="true"></i> Member

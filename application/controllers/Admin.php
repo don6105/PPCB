@@ -18,6 +18,11 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/admin_footer');
 	}
 
+    public function resume() {
+        $this->load->view('admin/resume');
+        $this->load->view('admin/admin_footer');
+    }
+
     public function member() {
         $data = $this->member_model->get_member('Master');
         $this->parser->parse('admin/template/member_template', $data);

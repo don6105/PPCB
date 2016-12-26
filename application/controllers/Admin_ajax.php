@@ -7,14 +7,15 @@ class Admin_ajax extends CI_Controller {
 		parent::__construct();
         $this->load->model('admin/member_model');
         $this->load->model('admin/course_model');
+        $this->load->model('admin/resume_model');
 	}
 
+    /************************
+     *                      *
+     *  Member AJAX Action  *
+     *                      *
+     ************************/
     public function new_member() {
-        $config['upload_path']   = 'assets/img/member/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['file_name']     = md5(uniqid(mt_rand()));
-        $this->load->library('upload' , $config);
-
         $name       = $this->input->post('name');
         $name_en    = $this->input->post('name_en');
         $pwd        = $this->input->post('pwd');
@@ -23,23 +24,8 @@ class Admin_ajax extends CI_Controller {
         $year       = $this->input->post('edu_year');
         $permission = $this->input->post('permission');
 
-        if(! $this->upload->do_upload('img')) {
-            $data = array('result' => 'Failed '.$this->upload->display_errors());
-            echo json_encode($data);
-        }
-        else {
-            $pwd = md5($pwd);
-            $img  = 'assets/img/member/'.$this->upload->data('file_name');
-            $r = $this->member_model->new_member($img, $name, $name_en, $pwd, $mail, $level, $year, $permission);
-            if($r != -1) {
-                $data = array('result' => 'Success', 'id' => $r, 'img' => $img);
-                echo json_encode($data);
-            }
-            else {
-                $data = array('result' => 'Failed');
-                echo json_encode($data);
-            }
-        }
+        $r = $this->member_model->new_member($name, $name_en, $pwd, $mail, $level, $year, $permission);
+        echo json_encode($r);
     }
 
     public function mod_member() {
@@ -58,7 +44,8 @@ class Admin_ajax extends CI_Controller {
 
     public function trash_member() {
         $id = $this->input->post('row');
-        $r  = $this->member_model->trash_member($id);
+
+        $r = $this->member_model->trash_member($id);
         if($r > 0) echo 'Success';
         else echo 'Failed';
     }
@@ -67,9 +54,48 @@ class Admin_ajax extends CI_Controller {
         $id  = $this->input->post('row');
         $pwd = $this->input->post('pwd');
         $pwd = md5($pwd);
-        $r   = $this->member_model->change_pwd($id, $pwd);
+
+        $r = $this->member_model->change_pwd($id, $pwd);
         if($r > 0) echo 'Success';
         else echo 'Failed';
+    }
+
+
+    /************************
+     *                      *
+     *  Course AJAX Action  *
+     *                      *
+     ************************/
+    public function new_course() {
+        $year = $this->input->post('year');
+        $name = $this->input->post('name');
+        $link = $this->input->post('link');
+
+        $r = $this->course_model->new_course($name, $year, $link);
+        if($r > 0)
+            $data = array('result' => 'Success', 'id' => $r);
+        else
+            $data = array('result' => 'Failed');
+        echo json_encode($data);
+    }
+
+    public function trash_course() {
+        $id = $this->input->post('row');
+
+        $r = $this->course_model->trash_course($id);
+        if($r > 0) echo 'Success';
+        else echo 'Failed';
+    }
+
+    /************************
+     *                      *
+     *  Resume AJAX Action  *
+     *                      *
+     ************************/
+    public function update_resume() {
+        // $r = $this->resume_model->upload_img();
+        // echo $r;
+        echo "XD";
     }
 
 }
