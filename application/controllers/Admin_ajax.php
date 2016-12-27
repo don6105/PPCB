@@ -92,10 +92,18 @@ class Admin_ajax extends CI_Controller {
      *  Resume AJAX Action  *
      *                      *
      ************************/
+    public function upload_img() {
+        $r = $this->resume_model->upload_img();
+        echo $r;
+    }
+
     public function update_resume() {
-        // $r = $this->resume_model->upload_img();
-        // echo $r;
-        echo "XD";
+        $resume = $this->input->post('resume');
+        $imgs   = $this->input->post('imgs');
+
+        $r = $this->resume_model->update_resume($resume, $imgs, 'don0910129285@gmail.com');
+        if($r == 1) echo 'Success';
+        else echo 'Failed';
     }
 
 }

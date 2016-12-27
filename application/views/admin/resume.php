@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <form>
                 <textarea class="form-control" rows="10" id="resume_editor" name="resume_editor" placeholder="edit your resume"></textarea>
-                <input name="image" type="file" id="upload" class="hidden" onchange="">
+                <!-- <input name="image" type="file" id="upload" class="hidden" onchange=""> -->
             </form>
             <botton class="btn btn-primary btn-md pull-right" id="save_resume_btn">
                 <i class="fa fa-floppy-o" aria-hidden="true"></i> Save

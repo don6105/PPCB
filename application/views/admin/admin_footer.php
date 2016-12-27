@@ -8,7 +8,7 @@
 <script src="<?=base_url();?>assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- TinyMCE(rich editor) -->
-<script src="<?=base_url();?>assets/js/tinymce/tinymce.min.js"></script>
+<script src="<?=base_url();?>assets/vendor/tinymce/tinymce.min.js"></script>
 
 <!-- My JavaScript -->
 <script src="<?=base_url();?>assets/js/admin-resume.js"></script>

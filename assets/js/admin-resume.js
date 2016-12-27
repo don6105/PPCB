@@ -1,7 +1,8 @@
+$a = "";
 $( document ).ready(function() {
 
     if(location.href.indexOf("admin/resume")>-1) {
-
+        var editor_imgs = [];
         // TinyMCE(rich editor)
         tinymce.init({
             selector:'#resume_editor',
@@ -16,32 +17,53 @@ $( document ).ready(function() {
             image_advtab: true,
             content_css: [
                 '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-                '../../assets/js/tinymce/skins/custom/codepen.min.css'
+                '../../assets/vendor/tinymce/skins/custom/codepen.min.css'
             ],
+            plugin_preview_width: 1000,
+            // enable advanced tab
+            image_advtab: true,
+            // enable title field in the Image dialog
+            image_title: true,
+            // enable automatic uploads of images represented by blob or data URIs
+            automatic_uploads: true,
+            // URL of our upload handler (for more details check: https://www.tinymce.com/docs/configure/file-image-upload/#images_upload_url)
+            images_upload_url: '../admin_ajax/upload_img',
+            // here we add custom filepicker only to Image dialog
             file_picker_types: 'image',
-            file_picker_callback: function(callback, value, meta) {
-                if (meta.filetype == 'image') {
-                    $('#upload').trigger('click');
-                    $('#upload').on('change', function() {
-                        var file = this.files[0];
-                        var reader = new FileReader();
-                        reader.onload = function(e) {
-                            callback(e.target.result, {
-                                alt: ''
-                            });
-                        };
-                        reader.readAsDataURL(file);
-                    });
-                }
+            // and here's our custom image picker
+            file_picker_callback: function(cb, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                // Note: In modern browsers input[type="file"] is functional without
+                // even adding it to the DOM, but that might not be the case in some older
+                // or quirky browsers like IE, so you might want to add it to the DOM
+                // just in case, and visually hide it. And do not forget do remove it
+                // once you do not need it anymore.
+                input.onchange = function() {
+                    var file = this.files[0];
+                    // Note: Now we need to register the blob in TinyMCEs image blob
+                    // registry. In the next release this part hopefully won't be
+                    // necessary, as we are looking to handle it internally.
+                    var id = 'blobid' + (new Date()).getTime();
+                    var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                    var blobInfo = blobCache.create(id, file);
+                    blobCache.add(blobInfo);
+
+                    // call the callback and populate the Title field with the file name
+                    cb(blobInfo.blobUri(), { title: file.name });
+                };
+                input.click();
             }
         }); // end of tinymce.init
 
         $("#save_resume_btn").on("click", function() {
-            var editor = tinyMCE.get('resume_editor');
+            var imgs = tinyMCE.activeEditor.getContent().match(/src="\S+.(gif|jpg|jpeg|png)"/g).join(",");
+            var editor = tinyMCE.activeEditor;
             editor.setProgressState(1); // Show progress
             editor.setProgressState(0); // Hide progress
             // console.log( editor.getContent() );
-            $.post(site_url+"/update_resume", {resume: editor.getContent()}, function() {
+            $.post(site_url+"/update_resume", {resume: editor.getContent(), imgs: imgs}, function() {
 
             });
         });

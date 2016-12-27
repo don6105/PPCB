@@ -8,3 +8,9 @@ div.mce-edit-area{
 #save_resume_btn {
     margin-top: 15px;
 }
+
+@media (min-height: 800px) {
+    #resume_editor {
+        min-height: 450px;
+    }
+}
