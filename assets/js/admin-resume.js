@@ -12,8 +12,8 @@ $( document ).ready(function() {
                 'searchreplace wordcount visualchars code',
                 'media nonbreaking save table contextmenu directionality',
                 'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc' ],
-            toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            toolbar2: 'preview media | forecolor backcolor emoticons | codesample',
+            toolbar1: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            toolbar2: 'preview | forecolor backcolor emoticons | insert codesample link image media',
             image_advtab: true,
             content_css: [
                 '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
