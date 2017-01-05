@@ -20,10 +20,9 @@ class Resume_model extends CI_Model {
     }
 
     public function update_resume($resume, $imgs, $mail) {
-        //explode(",",$imgs);
-        $imgs = str_replace('src="../../assets/img/resume/tmp/','',$imgs);
-        $imgs = str_replace('"','',$imgs);
-        $imgs = explode(",",$imgs);
+        $imgs = str_replace('src="../../assets/img/resume/tmp/', '', $imgs);
+        $imgs = str_replace('"', '', $imgs);
+        $imgs = explode(',', $imgs);
         foreach($imgs as $index => $value) {
             @ rename(getcwd().'/assets/img/resume/tmp/'.$value, getcwd().'/assets/img/resume/'.$value);
         }
@@ -31,7 +30,9 @@ class Resume_model extends CI_Model {
         @ array_map('unlink', glob(getcwd()."/assets/img/resume/tmp/*"));
 
         // update member.m_resume table by SQL
-        $resume = str_replace('../../assets/img/resume/tmp/', base_url('assets/img/resume/'), $resume);
+        $resume = str_replace('tmp/', '', $resume);
+        $resume = str_replace('../../assets/img/resume/', base_url('assets/img/resume/'), $resume);
+        echo $resume;
         $this->db->set('m_resume', $resume);
         $this->db->where('m_mail' , $mail);
         $r = $this->db->update('member');
@@ -39,6 +40,20 @@ class Resume_model extends CI_Model {
             return $this->db->affected_rows();
         else
             return -1;
+    }
+
+    public function get_resume($m_id) {
+        $this->db->select('m_resume');
+        $query = $this->db->get_where('member', array('m_id' => $m_id));
+
+        if($query->num_rows()>0) {
+            $row    = $query->row();
+            $resume = $row->m_resume;
+            $query->free_result();
+            return $resume;
+        } else {
+            return -1;
+        }
     }
 
 }

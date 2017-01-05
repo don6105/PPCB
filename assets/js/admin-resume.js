@@ -1,4 +1,3 @@
-$a = "";
 $( document ).ready(function() {
 
     if(location.href.indexOf("admin/resume")>-1) {
@@ -54,17 +53,25 @@ $( document ).ready(function() {
                     cb(blobInfo.blobUri(), { title: file.name });
                 };
                 input.click();
+            },
+            init_instance_callback: function(instance) {
+                $.post(site_url+"/get_resume", {id: 4}, function(data) {
+                    tinyMCE.activeEditor.setContent(data);
+                });
             }
         }); // end of tinymce.init
 
         $("#save_resume_btn").on("click", function() {
-            var imgs = tinyMCE.activeEditor.getContent().match(/src="\S+.(gif|jpg|jpeg|png)"/g).join(",");
             var editor = tinyMCE.activeEditor;
-            editor.setProgressState(1); // Show progress
-            editor.setProgressState(0); // Hide progress
-            // console.log( editor.getContent() );
-            $.post(site_url+"/update_resume", {resume: editor.getContent(), imgs: imgs}, function() {
+            var imgs   = tinyMCE.activeEditor.getContent().match(/src="\S+.(gif|jpg|jpeg|png)"/g);
+            if(imgs.length>1) imgs.join(",");
 
+            editor.setProgressState(1); // Show progress
+
+            $.post(site_url+"/update_resume", {resume: editor.getContent(), imgs: imgs}, function() {
+                setTimeout(function() {
+                    editor.setProgressState(0); // Hide progress
+                }, 1200);
             });
         });
 

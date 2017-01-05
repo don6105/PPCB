@@ -15,6 +15,7 @@ class Index extends CI_Controller {
 
 	public function index() {
 		$this->load->view('index');
+        $this->load->view('member_popup');
 		$this->load->view('about');
 
 		$this->load->view('member1');

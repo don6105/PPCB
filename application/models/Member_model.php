@@ -15,5 +15,20 @@ class Member_model extends CI_Model {
         $query->free_result();
         return $data;
     }
+
+    public function get_resume($m_id) {
+        $this->db->select('m_resume');
+        $query = $this->db->get_where('member', array('m_id' => $m_id));
+
+        if($query->num_rows()>0) {
+            $row    = $query->row();
+            $resume = $row->m_resume;
+            $query->free_result();
+            $data = array('result' => 'Success', 'resume' => $resume);
+        } else {
+            $data = array('result' => 'Failed');
+        }
+        return $data;
+    }
 }
 ?>

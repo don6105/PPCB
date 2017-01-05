@@ -102,8 +102,14 @@ class Admin_ajax extends CI_Controller {
         $imgs   = $this->input->post('imgs');
 
         $r = $this->resume_model->update_resume($resume, $imgs, 'don0910129285@gmail.com');
-        if($r == 1) echo 'Success';
-        else echo 'Failed';
+        // if($r == 1) echo 'Success';
+        // else echo 'Failed';
+    }
+
+    public function get_resume() {
+        $m_id = $this->input->post('id');
+        $data = $this->resume_model->get_resume($m_id);
+        echo $data;
     }
 
 }

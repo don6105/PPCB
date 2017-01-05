@@ -8,18 +8,21 @@
             </div>
 
             <div class="col-md-6 text-center">
-                <h3 class="about-content">
+                <h3>
                     長庚大學 資訊工程學系<br>
                     林俊淵教授主持之實驗室<br>
-                    <br>
-                    地址：<br>
-                    33302 桃園市龜山區文化一路259號 管理大樓4F<br>
-                    <br>
-                    Address：<br>
+                </h3>
+                <h3>地址：</h3>
+                <div class="about-content">
+                    33302 桃園市龜山區文化一路259號 管理大樓4F
+                </div>
+
+                <h3>Address：</h3>
+                <div class="about-content">
                     4F, Management Building, <br>
                     No.259, Wenhua 1st Rd., Guishan Dist., <br>
                     Taoyuan City 33302, Taiwan (R.O.C.)
-                </h3>
+                </div>
             </div>
             <div class="col-md-6 about-img">
                 <img src="<?=base_url();?>assets/img/PPCB/logo.jpg" class="img-responsive center" alt="">

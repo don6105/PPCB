@@ -28,6 +28,10 @@
     margin-bottom: 20px;
     min-height: 130px;
 }
+.student-box div {
+    vertical-align: middle;
+    margin: 1em 0;
+}
 .student-box img {
     max-height: 130px;
     max-width: 100px;
@@ -56,6 +60,16 @@
     margin-right:-4px;
 }
 
+#member a {
+    color: rgb(51, 51, 51);
+}
+
+.adviser-box:hover,
+.student-box:hover {
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 @media screen and (max-width: 768px){
     .adviser-box,
     .student-box {
@@ -71,4 +85,8 @@
         margin-bottom: 8px;
         line-height: 16px;
     }
+}
+
+#resume_content {
+    overflow: scroll;
 }

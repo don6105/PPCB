@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
         $this->load->library('parser');
         $this->load->model('admin/member_model');
         $this->load->model('admin/course_model');
+        $this->load->model('admin/resume_model');
 
 		$this->load->view('admin/admin_header');
 		$this->load->view('admin/admin_nav');

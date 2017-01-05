@@ -12,7 +12,10 @@
 <script src="<?=base_url();?>assets/js/creative.js"></script>
 
 <!-- index JavaScript -->
-<script src="<?=base_url();?>assets/js/index.js"></script>
+<script src="<?=base_url();?>assets/js/resume.js"></script>
 
+<script>
+    var site_url = "<?=site_url('index_ajax')?>";
+</script>
 </body>
 </html>
