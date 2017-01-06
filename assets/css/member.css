@@ -5,13 +5,15 @@
 /* adviser box of member */
 .adviser-box {
     margin-bottom: 10px;
+    min-height: 170px;
 }
 .adviser-box div {
+    vertical-align: middle;
     padding: 5px 0px 5px 0px;
 }
 .adviser-box img {
-    max-height: 150px;
-    max-width: 130px;
+    height: 155px;
+    width: 130px;
     margin-left: 5px;
 }
 .adviser-box p {
@@ -26,15 +28,15 @@
 /* student box of member */
 .student-box {
     margin-bottom: 20px;
-    min-height: 130px;
+    min-height: 150px;
 }
 .student-box div {
     vertical-align: middle;
     margin: 1em 0;
 }
 .student-box img {
-    max-height: 130px;
-    max-width: 100px;
+    height: 120px;
+    width: 95px;
 }
 .student-box p{
     font-size: 16px;
@@ -88,5 +90,5 @@
 }
 
 #resume_content {
-    overflow: scroll;
+    overflow: auto;
 }

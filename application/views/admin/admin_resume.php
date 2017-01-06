@@ -1,3 +1,5 @@
+<link href="<?=base_url();?>assets/css/admin-resume.css" rel="stylesheet">
+
 <div class="container-fluid">
     <div class="row">
         <ol class="breadcrumb">

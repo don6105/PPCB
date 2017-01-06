@@ -5,10 +5,30 @@ class Admin_ajax extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+
+        $this->load->model('admin/login_model');
         $this->load->model('admin/member_model');
         $this->load->model('admin/course_model');
         $this->load->model('admin/resume_model');
 	}
+
+    /************************
+     *                      *
+     *  Login AJAX Action   *
+     *                      *
+     ************************/
+    public function login() {
+        $mail   = $this->input->post('usermail');
+        $passwd = $this->input->post('password');
+        $r = $this->login_model->login($mail, $passwd);
+        echo json_encode($r);
+    }
+
+    public function logout() {
+        $r = $this->login_model->logout();
+        echo json_encode($r);
+    }
+
 
     /************************
      *                      *
@@ -53,7 +73,6 @@ class Admin_ajax extends CI_Controller {
     public function change_pwd() {
         $id  = $this->input->post('row');
         $pwd = $this->input->post('pwd');
-        $pwd = md5($pwd);
 
         $r = $this->member_model->change_pwd($id, $pwd);
         if($r > 0) echo 'Success';
@@ -73,10 +92,10 @@ class Admin_ajax extends CI_Controller {
 
         $r = $this->course_model->new_course($name, $year, $link);
         if($r > 0)
-            $data = array('result' => 'Success', 'id' => $r);
+            $r = array('result' => 'Success', 'id' => $r);
         else
-            $data = array('result' => 'Failed');
-        echo json_encode($data);
+            $r = array('result' => 'Failed');
+        echo json_encode($r);
     }
 
     public function trash_course() {
@@ -101,15 +120,15 @@ class Admin_ajax extends CI_Controller {
         $resume = $this->input->post('resume');
         $imgs   = $this->input->post('imgs');
 
-        $r = $this->resume_model->update_resume($resume, $imgs, 'don0910129285@gmail.com');
-        // if($r == 1) echo 'Success';
-        // else echo 'Failed';
+        $r = $this->resume_model->update_resume($resume, $imgs, $this->session->userdata('m_mail'));
+        echo $r;
     }
 
     public function get_resume() {
-        $m_id = $this->input->post('id');
-        $data = $this->resume_model->get_resume($m_id);
-        echo $data;
+        $m_id = $this->session->userdata('m_id');
+
+        $r = $this->resume_model->get_resume($m_id);
+        echo $r;
     }
 
 }

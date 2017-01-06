@@ -1,3 +1,5 @@
+<link href="<?=base_url();?>assets/css/admin-course.css" rel="stylesheet">
+
 <div class="container-fluid">
     <div class="row">
         <ol class="breadcrumb">
@@ -107,7 +109,7 @@
                 <tr id="c_{c_id}">
                     <td class="col-md-2" name="year_value"> {c_year} </td>
                     <td class="col-md-3" name="name_value"> {c_name} </td>
-                    <td class="col-md-5" name="link_value"> {c_link} </td>
+                    <td class="col-md-5" name="link_value"> <a href="{c_link}" target="_blank">{c_link}</a> </td>
                     <td class="col-md-2">
                         <botton class="btn btn-danger btn-md" data-toggle="modal" data-target="#trash_course_modal" name="trash_btn">
                             <i class="fa fa-trash" aria-hidden="true"></i> Trash

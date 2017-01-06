@@ -22,17 +22,22 @@ class Resume_model extends CI_Model {
     public function update_resume($resume, $imgs, $mail) {
         $imgs = str_replace('src="../../assets/img/resume/tmp/', '', $imgs);
         $imgs = str_replace('"', '', $imgs);
-        $imgs = explode(',', $imgs);
-        foreach($imgs as $index => $value) {
-            @ rename(getcwd().'/assets/img/resume/tmp/'.$value, getcwd().'/assets/img/resume/'.$value);
+
+        if(stripos($imgs, ',')>-1) {
+            $imgs = explode(',', $imgs);
+            foreach($imgs as $index => $value) {
+                @ rename(getcwd().'/assets/img/resume/tmp/'.$value, getcwd().'/assets/img/resume/'.$value);
+            }
+        } else {
+            @ rename(getcwd().'/assets/img/resume/tmp/'.$imgs, getcwd().'/assets/img/resume/'.$imgs);
         }
+
         // delete tmp images
         @ array_map('unlink', glob(getcwd()."/assets/img/resume/tmp/*"));
 
         // update member.m_resume table by SQL
         $resume = str_replace('tmp/', '', $resume);
         $resume = str_replace('../../assets/img/resume/', base_url('assets/img/resume/'), $resume);
-        echo $resume;
         $this->db->set('m_resume', $resume);
         $this->db->where('m_mail' , $mail);
         $r = $this->db->update('member');

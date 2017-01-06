@@ -1,3 +1,8 @@
+<?php
+if(!$this->session->has_userdata('m_mail')) {
+    redirect('admin/login');
+}
+?>
 <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -15,8 +20,9 @@
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$this->session->userdata('m_name').' ('.$this->session->userdata('m_name_en').')';?><b class="caret"></b></a>
                 <ul class="dropdown-menu">
+                    <!--
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
@@ -24,8 +30,9 @@
                         <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
+                    -->
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="javascript: void(0);" id="logout_link"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
@@ -33,6 +40,7 @@
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
+                <?php if($this->session->has_userdata('m_mail')) { ?>
                 <li id="home_dir">
                     <a href="<?=site_url()?>/admin">
                         <i class="fa fa-fw fa-home" aria-hidden="true"></i> Home
@@ -43,6 +51,8 @@
                         <i class="fa fa-fw fa-user" aria-hidden="true"></i> Resume
                     </a>
                 </li>
+                <?php } ?>
+                <?php if($this->session->has_userdata('m_permission') && $this->session->userdata('m_permission')=='admin') { ?>
                 <li id="member_dir">
                     <a href="<?=site_url()?>/admin/member">
                         <i class="fa fa-fw fa-users" aria-hidden="true"></i> Member
@@ -58,6 +68,7 @@
                         <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i> Course
                     </a>
                 </li>
+                <?php } ?>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

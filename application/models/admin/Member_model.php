@@ -21,13 +21,12 @@ class Member_model extends CI_Model {
         if(! $this->upload->do_upload('img')) {
             $data = array('result' => 'Failed '.$this->upload->display_errors());
         } else {
-            $pwd = md5($pwd);
             $img  = 'assets/img/member/'.$this->upload->data('file_name');
             $data = array(
                 'm_img'        => $img,
                 'm_name'       => $name,
                 'm_name_en'    => $name_en,
-                'm_pwd'        => $pwd,
+                'm_pwd'        => md5($pwd),
                 'm_mail'       => $mail,
                 'm_edu_level'  => $level,
                 'm_edu_year'   => $year,
@@ -82,7 +81,7 @@ class Member_model extends CI_Model {
 
     public function change_pwd($id, $pwd) {
         $data = array(
-            'm_pwd' => $pwd
+            'm_pwd' => md5($pwd)
         );
         $id = str_replace('m_', '', $id);
         $this->db->where('m_id' , $id);

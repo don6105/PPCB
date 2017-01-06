@@ -231,3 +231,14 @@ ul.alert-dropdown {
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.nav a {
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+.navbar-brand {
+    font-family: 'Kalam', cursive;
+    font-size: 28px;
+    font-weight: 600;
+}

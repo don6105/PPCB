@@ -1,3 +1,5 @@
+<link href="<?=base_url();?>assets/css/admin-member.css" rel="stylesheet">
+
 <div class="container-fluid">
     <div class="row">
         <ol class="breadcrumb">
