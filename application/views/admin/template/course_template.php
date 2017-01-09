@@ -1,3 +1,9 @@
+<?php
+if($this->session->userdata('m_permission')!='admin') {
+    redirect('admin');
+}
+?>
+
 <link href="<?=base_url();?>assets/css/admin-course.css" rel="stylesheet">
 
 <div class="container-fluid">
@@ -94,8 +100,13 @@
 
     <!-- Main content -->
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10 col-md-offset-1">
             <h2 class="text-center"> Course List </h2>
+        </div>
+        <div class="col-md-1">
+            <botton class="btn btn-primary btn-md pull-right fix-btn-position" data-toggle="modal" data-target="#new_course_modal">
+                <i class="fa fa-plus" aria-hidden="true"></i> New
+            </botton>
         </div>
         <div class="col-md-12">
             <table class="table table-responsive table-hover" id="course_list">
@@ -118,10 +129,6 @@
                 </tr>
                 {/course}
             </table>
-
-            <botton class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#new_course_modal">
-             <i class="fa fa-plus" aria-hidden="true"></i> New
-            </botton>
         </div>
     </div>
 

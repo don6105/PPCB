@@ -86,9 +86,18 @@
     .student-box p {
         margin-bottom: 8px;
         line-height: 16px;
+        font-size: 14px;
     }
 }
 
 #resume_content {
     overflow: auto;
+    max-height: 450px;
+}
+
+@media screen and (min-width: 1200px){
+    #resume_content {
+        overflow: auto;
+        max-height: 650px;
+    }
 }

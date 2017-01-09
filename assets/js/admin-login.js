@@ -47,4 +47,34 @@ $(document).ready(function() {
         });
     });
 
+    // change passwd
+    $("#personal_pwd_apply_btn").on("click", function() {
+        if( $("#change_pwd1").val()!="" && $("#change_pwd1").val()==$("#change_pwd2").val()) {
+            $.post(site_url+"/change_pwd", {row: "self", pwd: $("#change_pwd1").val() }, function(data) {
+                if(data.indexOf("Success")>-1) {
+                    $("#personal_pwd_result_msg").html("<font color='green' size='3'>Success</font>");
+                    row  = "";
+                    name = "";
+                } else {
+                    $("#personal_pwd_result_msg").html("<font color='red' size='3'>Failed</font>");
+                }
+            })
+            .fail(function() { $("#personal_pwd_result_msg").html("<font color='red' size='3'>Failed</font>"); })
+            .always(function() {
+                setTimeout(function() {
+                    $("#personal_pwd_result_msg").html("");
+                    $("#personal_pwd_form").trigger('reset');
+                    $("#personal_pwd_modal").modal("hide");
+                }, 1500);
+            });
+        } else {
+            $("#personal_pwd_result_msg").html("<font color='red' size='3'>Password aren't matched</font>");
+            setTimeout(function() {
+                $("#personal_pwd_result_msg").html("");
+                $("#personal_pwd_form").trigger('reset');
+            }, 1500);
+        }
+
+    });
+
 }); // end of document.ready

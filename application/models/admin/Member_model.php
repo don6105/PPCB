@@ -80,6 +80,7 @@ class Member_model extends CI_Model {
     }
 
     public function change_pwd($id, $pwd) {
+        echo $pwd;
         $data = array(
             'm_pwd' => md5($pwd)
         );

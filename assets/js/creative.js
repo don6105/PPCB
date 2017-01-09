@@ -45,4 +45,6 @@
         distance: '0px'
     }, 100);
 
+    console.log('%cAuthor1: undersky <don0910129285@gmail.com>', 'font-size: 16px; color: #DD0000');
+    console.log('%cAuthor2: sumin <sumin2012@163.com>', 'font-size: 16px; color: #CC0000');
 })(jQuery); // End of use strict

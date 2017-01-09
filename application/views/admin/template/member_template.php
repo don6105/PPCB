@@ -1,3 +1,9 @@
+<?php
+if($this->session->userdata('m_permission')!='admin') {
+    redirect('admin');
+}
+?>
+
 <link href="<?=base_url();?>assets/css/admin-member.css" rel="stylesheet">
 
 <div class="container-fluid">
@@ -158,8 +164,13 @@
 
     <!-- Main content -->
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10 col-md-offset-1">
             <h2 class="text-center"> Member List </h2>
+        </div>
+        <div class="col-md-1">
+            <botton class="btn btn-primary btn-md pull-right fix-btn-position" data-toggle="modal" data-target="#new_member_modal">
+                <i class="fa fa-plus" aria-hidden="true"></i> New
+            </botton>
         </div>
         <div class="col-md-12">
             <table class="table table-responsive table-hover" id="member_list">
@@ -203,10 +214,6 @@
                 </tr>
                 {/member}
             </table>
-
-            <botton class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#new_member_modal">
-             <i class="fa fa-plus" aria-hidden="true"></i> New
-            </botton>
         </div>
     </div>
 

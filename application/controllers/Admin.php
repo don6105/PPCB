@@ -38,6 +38,7 @@ class Admin extends CI_Controller {
 
     public function research() {
         $this->load->view('admin/admin_nav');
+        $this->load->view('admin/admin_research');
         $this->load->view('admin/admin_footer');
     }
 

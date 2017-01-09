@@ -73,6 +73,7 @@ class Admin_ajax extends CI_Controller {
     public function change_pwd() {
         $id  = $this->input->post('row');
         $pwd = $this->input->post('pwd');
+        if($id=='self') $id = $this->session->userdata('m_id');
 
         $r = $this->member_model->change_pwd($id, $pwd);
         if($r > 0) echo 'Success';

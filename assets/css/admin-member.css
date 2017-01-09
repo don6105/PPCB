@@ -33,3 +33,7 @@ tr, th, td {
     margin-top: 7px;
     text-align: center;
 }
+
+.fix-btn-position {
+    margin-top: 20px;
+}
