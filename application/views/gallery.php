@@ -9,7 +9,7 @@
             <div class="row no-gutter">
                 <div class="col-lg-12">
                     <a href="<?php echo site_url('index/gallery1'); ?>" class="portfolio-box">
-                        <img src="<?=base_url();?>assets/img/PPCB/102年度尾牙.jpg" class="img-responsive" alt="">
+                        <img src="<?=base_url('assets/img/PPCB/102年度尾牙.jpg');?>" class="img-responsive" alt="">
                         <div class="portfolio-box-caption-inverse">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-name">

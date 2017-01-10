@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-md-6 about-img">
-                <img src="<?=base_url();?>assets/img/PPCB/logo.jpg" class="img-responsive center" alt="">
+                <img src="<?=base_url('assets/img/PPCB/logo.jpg');?>" class="img-responsive center" alt="">
             </div>
 
         </div>

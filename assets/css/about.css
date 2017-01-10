@@ -3,6 +3,10 @@ img.center {
     margin: 0 auto;
 }
 
+#about .section-heading {
+    font-weight: 600;
+}
+
 #about .section-heading p {
     margin-bottom: 0px;
 }

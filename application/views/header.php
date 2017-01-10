@@ -22,18 +22,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nova+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
 
-    <!-- Plugin CSS -->
-    <link href="<?=base_url();?>assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?=base_url();?>assets/vendor/font-awesome/css/font-awesome.min.css">
 
     <!-- Theme CSS -->
     <link href="<?=base_url();?>assets/css/creative.css" rel="stylesheet">
@@ -43,6 +37,7 @@
     <link href="<?=base_url();?>assets/css/index.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/css/about.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/css/member.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets/css/research.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/css/course.css" rel="stylesheet">
 </head>
 

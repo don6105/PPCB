@@ -1,0 +1,106 @@
+#research .section-heading {
+    font-weight: 600;
+    color: #ea5550;
+}
+
+#research {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+          background-size: cover;
+       -o-background-size: cover;
+     -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-position: center top;
+  background-image: url('../img/PPCB/iceberg.jpg');
+  text-align: center;
+  color: white;
+}
+
+/* Collapse Style */
+#research .panel-group .panel {
+    margin: 10px 10px;
+    background-color: rgba(255, 255, 255, .5);
+}
+#research .panel-heading {
+    margin: 0px 0px;
+    padding: 5px 0px;
+    background-color: rgba(255, 255, 255, .6);
+}
+#research .panel-heading:hover {
+    background-color: rgb(210, 210, 210);
+}
+#research .panel-title {
+    margin: 5px 10px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: rgb(240, 95, 64);
+}
+#research .panel-body {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    max-height: 700px;
+    overflow: auto;
+}
+#research .thumbnail {
+    background-color: rgba(255, 255, 255, .0);
+    border-color: rgba(255, 255, 255, .0);
+}
+
+#research .paper-group {
+    margin-bottom: 15px;
+    border-bottom: 4px dashed #00A1E9;
+}
+#research .paper-group:last-child {
+    margin-bottom: 15px;
+    border-width: 0px;
+}
+#research .paper-group img {
+    max-width:  230px;
+}
+#research .paper-text-box p {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 1250px){
+    #research .panel-body {
+        max-height: 650px;
+    }
+    #research .paper-group img {
+        max-width:  180px;
+    }
+    #research .paper-text-box p {
+        margin-top: 15px;
+        margin-bottom: 0px;
+    }
+}
+@media screen and (max-width: 1150px){
+    #research .paper-text-box p {
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+}
+@media screen and (max-width: 992px){
+    #research .panel-body {
+        max-height: 600px;
+    }
+    #research .paper-text-box p {
+        margin-top: 12px;
+        margin-bottom: 0px;
+    }
+    #research .paper-group {
+        margin-bottom: 35px;
+    }
+}
+@media screen and (max-width: 600px){
+    #research .panel-body {
+        max-height: 450px;
+    }
+    #research .paper-group {
+        padding-bottom: 15px;
+    }
+    #research .paper-group img {
+        max-width:  210px;
+    }
+}

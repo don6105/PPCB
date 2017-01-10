@@ -56,7 +56,6 @@ if($this->session->userdata('m_permission')!='admin') {
                 <li role="presentation" class="active"><a data-toggle="tab" href="#achievement">Achievement</a></li>
                 <li role="presentation"><a data-toggle="tab" href="#conference">Conference</a></li>
                 <li role="presentation"><a data-toggle="tab" href="#journal">Journal</a></li>
-                <li role="presentation"><a href="javascript: void(0);" onclick="$('#new_tab_modal').modal('toggle');"><i class="fa fa-plus" aria-hidden="true" style="color: #D94600;"></i></a></li>
             </ul>
             <!-- tab content -->
             <div class="tab-content">

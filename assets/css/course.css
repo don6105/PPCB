@@ -2,19 +2,23 @@
     margin-bottom: 30px;
 }
 
-.course-box {
+#course .section-heading {
+    font-weight: 600;
+}
+
+#course .course-box {
     min-height: 220px;
     margin: 0 auto;
 }
 
-.course-tilte {
+#course .course-tilte {
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.course-item {
+#course .course-item {
     font-size: 18px;
 }
-.course-item .fa {
+#course .course-item .fa {
     margin-right: 8px;
 }
