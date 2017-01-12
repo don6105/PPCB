@@ -9,6 +9,7 @@
 <script src="<?=base_url();?>assets/js/creative.js"></script>
 <!-- My Custom JavaScript -->
 <script src="<?=base_url();?>assets/js/member.js"></script>
+<script src="<?=base_url();?>assets/js/research.js"></script>
 
 <script>
     var site_url = "<?=site_url('index_ajax')?>";

@@ -551,3 +551,126 @@ body {
 #design .copyright a {
   color: rgb(210, 210, 210);
 }
+
+
+/* Change the Bootstrap Modal effect */
+.fade-scale {
+    opacity: 0;
+    transform: scale(0);
+    -webkit-transition: all .5s ease-in-out;
+         -o-transition: all .5s ease-in-out;
+            transition: all .5s ease-in-out;
+}
+.fade-scale.in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* Modal size */
+.adviser-box:hover,
+.student-box:hover {
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.modal-dialog {
+    width: 90%;
+    height: 90%;
+    margin: 35px auto;
+    padding: 0;
+    color: rgb(0, 0, 0);
+}
+.modal-content {
+    width: 100%;
+    height: 98%;
+    border-radius: 0px;
+    overflow: auto;
+}
+.modal-body {
+    height: 90%;
+    overflow: auto;
+}
+.modal-header {
+    padding: 5px 5px;
+}
+.modal-header > .modal-title {
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 5px;
+}
+.modal-header > .close span {
+    font-size: 40px;
+}
+.modal-body {
+    max-height: 90vh; /*Sets the maximum height of the modal body to 90% of the screen height*/
+    padding: 45px 30px 15px 30px;
+    margin-right: 3px;
+}
+
+@media screen and (max-width: 699px) {
+    #member .adviser-box,
+    #member .student-box {
+        margin-top: 18px;
+        text-align: center;
+    }
+    #member .adviser-box img,
+    #member .student-box img {
+        margin-bottom: 5px;
+    }
+    #member .adviser-box p,
+    #member .student-box p {
+        margin-bottom: 8px;
+        line-height: 16px;
+        font-size: 14px;
+    }
+
+    .modal-dialog {
+        width: 95%;
+        height: 90%;
+        margin: 15px auto;
+        padding: 0;
+    }
+    .modal-header {
+        width: 96.5%;
+    }
+    .modal-header > .modal-title {
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .modal-header > .close span {
+        font-size: 30px;
+    }
+    .modal-body {
+        height: 85%;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1100px) {
+    .modal-header {
+        width: 97.7%;
+    }
+    .modal-body {
+        height: 88%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .modal-dialog {
+        width: 1200px;
+        height: 90%;
+        margin: 35px auto;
+        padding: 0;
+    }
+    .modal-header {
+        width: 1185px;
+    }
+    .modal-header > .modal-title {
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .modal-header > .close span {
+        font-size: 30px;
+    }
+}
+/* Modal size */

@@ -22,12 +22,13 @@
       border-left-color: #666 !important;
      border-right-color: #666 !important;
     border-bottom-color: rgba(0, 0, 0, .0) !important;
+    background-color: #e6eae3;
 }
 .tab-pane {
     padding: 15px 15px 15px 15px;
 }
 .tab-content {
-    background-color: rgb(255, 255, 255);
+    background-color: #e6eae3;
     min-height: 300px;
     border: 1px solid #666;
 }

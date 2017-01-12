@@ -4,6 +4,9 @@
 div.mce-edit-area{
     padding:15px;
 }
+.mce-panel {
+    background-color: #e6eae3;
+}
 
 #save_resume_btn {
     margin-top: 15px;

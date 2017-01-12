@@ -20,15 +20,17 @@
 /* Collapse Style */
 #research .panel-group .panel {
     margin: 10px 10px;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .4);
+    border-color: rgba(0, 0, 0, .0);
 }
 #research .panel-heading {
     margin: 0px 0px;
     padding: 5px 0px;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, .5);
 }
 #research .panel-heading:hover {
     background-color: rgb(210, 210, 210);
+    border-width: 0px;
 }
 #research .panel-title {
     margin: 5px 10px;
@@ -51,17 +53,68 @@
 #research .paper-group {
     margin-bottom: 15px;
     border-bottom: 4px dashed #00A1E9;
+    cursor: pointer;
 }
 #research .paper-group:last-child {
     margin-bottom: 15px;
     border-width: 0px;
 }
+#research .paper-group:hover {
+    background-color: rgba(0, 0, 0, .25);
+    border: 3px solid #00A1E9;
+    border-radius: 7px;
+}
+
 #research .paper-group img {
     max-width:  230px;
 }
 #research .paper-text-box p {
     margin-top: 30px;
     margin-bottom: 10px;
+}
+
+/* research modal style */
+.display-img {
+    max-height: 600px;
+    max-width: 600px;
+    border: 3px solid rgba(210, 210, 210, .7);
+}
+.content-box {
+    height: 380px;
+    padding: 15px 15px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    overflow: auto;
+}
+.thumbnail-box {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.thumbnail-box * {
+    display: inline-block;
+}
+.thumbnail-img {
+    max-height: 200px;
+    max-width: 200px;
+    margin: 5px 5px;
+    border: 3px solid rgba(210, 210, 210, .7);
+    border-radius: 7px;
+}
+.thumbnail-img:hover {
+    border: 3px solid #00A1E9;
+}
+
+
+#research .modal-body {
+    padding: 20px 0px 0px 0px;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 1250px){
+    #research .modal-content {
+        height: 85%;
+    }
 }
 @media screen and (max-width: 1250px){
     #research .panel-body {
@@ -74,11 +127,25 @@
         margin-top: 15px;
         margin-bottom: 0px;
     }
+    #research .content-box {
+        height: 330px;
+    }
+    #research .display-img {
+        max-height: 550px;
+        max-width: 400px;
+    }
 }
 @media screen and (max-width: 1150px){
     #research .paper-text-box p {
         margin-top: 5px;
         margin-bottom: 0px;
+    }
+    #research .display-img {
+        max-height: 500px;
+        max-width: 340px;
+    }
+    #research .content-box {
+        height: 280px;
     }
 }
 @media screen and (max-width: 992px){
@@ -102,5 +169,9 @@
     }
     #research .paper-group img {
         max-width:  210px;
+    }
+    #research .display-img {
+        max-height: 400px;
+        max-width: 300px;
     }
 }
