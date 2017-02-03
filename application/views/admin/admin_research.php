@@ -3,38 +3,7 @@ if($this->session->userdata('m_permission')!='admin') {
     redirect('admin');
 }
 ?>
-
 <link href="<?=base_url();?>assets/css/admin-research.css" rel="stylesheet">
-
-<!-- New Tab Modal -->
-<div class="modal fade" id="new_tab_modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center">New Tab</h4>
-      </div>
-      <div class="modal-body text-center">
-        <h3>
-            New Tab?
-        </h3>
-      </div>
-      <div class="modal-footer">
-        <div class="row">
-            <div id="trash_result_msg" class="col-md-5"></div>
-            <div class="col-md-5 col-md-offset-2">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="new_tab_cancel_btn">
-                    <i class="fa fa-ban" aria-hidden="true"></i> Cancel
-                </button>
-                <button type="button" class="btn btn-primary" id="new_tab_apply_btn">
-                    <i class="fa fa-check" aria-hidden="true"></i> Apply
-                </button>
-            </div>
-        </div>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <div class="container-fluid">
     <div class="row">
@@ -45,10 +14,112 @@ if($this->session->userdata('m_permission')!='admin') {
         </ol>
     </div>
 
+
+    <!-- New Research Modal -->
+    <div class="modal fade" id="new_research_modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center">New Research</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+                <form id="new_research_form" enctype="multipart/form-data">
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-center">Type</label>
+                        <label class="col-md-9">
+                            <select class="form-control" name="type_input">
+                                <option>Achievement</option>
+                                <option>Conference</option>
+                                <option>Journal</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-center">Title</label>
+                        <label class="col-md-9">
+                            <input type="text" class="form-control" name="input_title" placeholder="Paper Title">
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-center">Author</label>
+                        <label class="col-md-9">
+                            <input type="text" class="form-control" name="input_author" placeholder="Paper Author">
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-center">Date</label>
+                        <label class="col-md-9">
+                            <input type="text" class="form-control" name="input_date" placeholder="Public Date">
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-center">Organization</label>
+                        <label class="col-md-9">
+                            <input type="text" class="form-control" name="input_organization" placeholder="Public Organization">
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-center">Keyword</label>
+                        <label class="col-md-9">
+                            <input type="text" class="form-control" name="input_keyword" placeholder="Keyword">
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-center textarea-label">Description</label>
+                        <label class="col-md-9">
+                            <textarea class="form-control" rows="5" name="input_description" placeholder="Description"></textarea>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="btn btn-success fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>Select files...</span>
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input id="fileupload" type="file" name="files[]" multiple>
+                        </span>
+                        <br>
+                        <br>
+                        <!-- The global progress bar -->
+                        <div id="progress" class="progress">
+                            <div class="progress-bar progress-bar-success"></div>
+                        </div>
+                        <!-- The container for the uploaded files -->
+                        <div id="files" class="files"></div>
+                    </div>
+                </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+                <div id="new_result_msg" class="col-md-5"></div>
+                <div class="col-md-5 col-md-offset-2">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="new_cancel_btn">
+                        <i class="fa fa-ban" aria-hidden="true"></i> Close
+                    </button>
+                    <button type="button" class="btn btn-primary" id="new_apply_btn">
+                        <i class="fa fa-check" aria-hidden="true"></i> Apply
+                    </button>
+                </div>
+            </div>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+
     <!-- Main content -->
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-11">
             <h2 class="text-center"> Research </h2>
+        </div>
+        <div class="col-md-1">
+            <botton class="btn btn-primary btn-md pull-right fix-btn-position" data-toggle="modal" data-target="#new_research_modal">
+                <i class="fa fa-plus" aria-hidden="true"></i> New
+            </botton>
         </div>
         <div class="col-md-12 ">
             <!-- tab nav -->

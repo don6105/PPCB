@@ -13,7 +13,7 @@ $( document ).ready(function() {
         image_advtab: true,
         content_css: [
             '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-            '../../assets/vendor/tinymce/skins/custom/codepen.min.css'
+            '../assets/vendor/tinymce/skins/custom/codepen.min.css'
         ],
         plugin_preview_width: 1000,
         // enable advanced tab

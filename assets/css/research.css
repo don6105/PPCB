@@ -1,12 +1,7 @@
-#research .section-heading {
-    font-weight: 600;
-    color: #ea5550;
-}
-
 #research {
   position: relative;
   width: 100%;
-  min-height: auto;
+  min-height: 400px;
           background-size: cover;
        -o-background-size: cover;
      -moz-background-size: cover;
@@ -15,6 +10,15 @@
   background-image: url('../img/PPCB/iceberg.jpg');
   text-align: center;
   color: white;
+}
+
+#research .section-heading {
+    font-weight: 600;
+    color: #ea5550;
+}
+
+#research .primary {
+    margin-bottom: 40px;
 }
 
 /* Collapse Style */
@@ -105,34 +109,40 @@
     border: 3px solid #00A1E9;
 }
 
-
 #research .modal-body {
     padding: 20px 0px 0px 0px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-@media screen and (min-width: 1250px){
+@media screen and (min-width: 1300px){
     #research .modal-content {
         height: 85%;
     }
-}
-@media screen and (max-width: 1250px){
-    #research .panel-body {
-        max-height: 650px;
+    #research .content-box {
+        height: 330px;
     }
+}
+@media screen and (max-width: 1300px){
     #research .paper-group img {
-        max-width:  180px;
+        max-height: 180px;
+        max-width:  150px;
     }
     #research .paper-text-box p {
         margin-top: 15px;
         margin-bottom: 0px;
     }
-    #research .content-box {
-        height: 330px;
+
+    .content-box {
+        height: 280px;
     }
-    #research .display-img {
-        max-height: 550px;
-        max-width: 400px;
+    .display-img {
+        max-height: 450px;
+        max-width:  330px;
+    }
+    .thumbnail-img {
+        max-height: 160px;
+        max-width:  140px;
     }
 }
 @media screen and (max-width: 1150px){
@@ -141,16 +151,21 @@
         margin-bottom: 0px;
     }
     #research .display-img {
-        max-height: 500px;
-        max-width: 340px;
+        max-height: 380px;
+        max-width: 300px;
     }
-    #research .content-box {
-        height: 280px;
+
+    .content-box {
+        height: 240px;
+    }
+    .thumbnail-img {
+        max-height: 130px;
+        max-width:  120px;
     }
 }
 @media screen and (max-width: 992px){
     #research .panel-body {
-        max-height: 600px;
+        max-height: 650px;
     }
     #research .paper-text-box p {
         margin-top: 12px;
@@ -158,6 +173,14 @@
     }
     #research .paper-group {
         margin-bottom: 35px;
+    }
+
+    .content-box {
+        height: 240px;
+    }
+    .thumbnail-img {
+        max-height: 160px;
+        max-width:  140px;
     }
 }
 @media screen and (max-width: 600px){
@@ -170,7 +193,8 @@
     #research .paper-group img {
         max-width:  210px;
     }
-    #research .display-img {
+
+    .display-img {
         max-height: 400px;
         max-width: 300px;
     }

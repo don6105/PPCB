@@ -38,3 +38,16 @@
         min-height: 550px;
     }
 }
+
+.fix-btn-position {
+    margin-top: 20px;
+}
+
+.textarea-label {
+    margin-top: 30px;
+}
+
+form label.col-md-3 {
+    padding-top: 7px;
+    padding-left: 25px;
+}

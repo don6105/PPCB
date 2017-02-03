@@ -1,4 +1,4 @@
-    </div> <!-- page-wrapper -->
+     </div> <!-- page-wrapper -->
 </div><!-- wrapper -->
 
 <!-- jQuery -->
@@ -47,12 +47,46 @@
             }); // TinyMCE(rich editor)
             break;
         case "admin/member":
-            loadjscssfile("<?=base_url();?>assets/css/admin-member.css", "css");
             loadjscssfile("<?=base_url();?>assets/js/admin-member.js", "js");
             break;
         case "admin/course":
-            loadjscssfile("<?=base_url();?>assets/css/admin-course.css", "css");
             loadjscssfile("<?=base_url();?>assets/js/admin-course.js", "js");
+            break;
+        case "admin/research":
+            // jquery datepicker
+            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-ui/jquery-ui.min.css", "css");
+            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-ui/jquery-ui.min.js", "js", function() {
+                $("[name='input_date']").datepicker( {showButtonPanel: true} );
+                $("[name='input_date']").datepicker( "option", "dateFormat", "yy/mm/dd" );
+            });
+            // jquery file upload
+            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/css/jquery.fileupload.css", "css");
+            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/js/vendor/jquery.ui.widget.js", "js");
+            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/js/jquery.iframe-transport.js", "js");
+            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/js/jquery.fileupload.js", "js", function() {
+                $(function () {
+                    'use strict';
+                    // Change this to the location of your server-side upload handler:
+                    var url = '../assets/img/research/file-upload-server/';
+                    $('#fileupload').fileupload({
+                        url: url,
+                        dataType: 'json',
+                        done: function (e, data) {
+                            $.each(data.result.files, function (index, file) {
+                                $('<p/>').text(file.name).appendTo('#files');
+                            });
+                        },
+                        progressall: function (e, data) {
+                            var progress = parseInt(data.loaded / data.total * 100, 10);
+                            $('#progress .progress-bar').css(
+                                'width',
+                                progress + '%'
+                            );
+                        }
+                    }).prop('disabled', !$.support.fileInput)
+                        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+                });
+            });
             break;
     }
 
