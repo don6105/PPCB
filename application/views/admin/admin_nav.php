@@ -84,29 +84,29 @@ if(!$this->session->has_userdata('m_mail')) {
             <ul class="nav navbar-nav side-nav">
                 <?php if($this->session->has_userdata('m_mail')) { ?>
                 <li id="home_dir">
-                    <a href="<?=site_url()?>/admin">
+                    <a href="<?=site_url()?>admin">
                         <i class="fa fa-fw fa-home" aria-hidden="true"></i> Home
                     </a>
                 </li>
                 <li id="resume_dir">
-                    <a href="<?=site_url()?>/admin/resume">
+                    <a href="<?=site_url()?>admin/resume">
                         <i class="fa fa-fw fa-user" aria-hidden="true"></i> Resume
                     </a>
                 </li>
                 <?php } ?>
                 <?php if($this->session->has_userdata('m_permission') && $this->session->userdata('m_permission')=='admin') { ?>
                 <li id="member_dir">
-                    <a href="<?=site_url()?>/admin/member">
+                    <a href="<?=site_url()?>admin/member">
                         <i class="fa fa-fw fa-users" aria-hidden="true"></i> Member
                     </a>
                 </li>
                 <li id="research_dir">
-                    <a href="<?=site_url()?>/admin/research">
+                    <a href="<?=site_url()?>admin/research">
                         <i class="fa fa-fw fa-tasks" aria-hidden="true"></i> Research
                     </a>
                 </li>
                 <li id="course_dir">
-                    <a href="<?=site_url()?>/admin/course">
+                    <a href="<?=site_url()?>admin/course">
                         <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i> Course
                     </a>
                 </li>

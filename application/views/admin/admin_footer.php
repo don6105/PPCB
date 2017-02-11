@@ -38,7 +38,7 @@
     }
 
     // My JavaScript
-    var page = location.href.replace("<?=site_url()?>/", "");
+    var page = location.href.replace("<?=site_url()?>", "");
     switch(page) {
         case "admin/resume":
             loadjscssfile("<?=base_url();?>assets/css/admin-resume.css", "css");
@@ -64,28 +64,7 @@
             loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/js/vendor/jquery.ui.widget.js", "js");
             loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/js/jquery.iframe-transport.js", "js");
             loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/js/jquery.fileupload.js", "js", function() {
-                $(function () {
-                    'use strict';
-                    // Change this to the location of your server-side upload handler:
-                    var url = '../assets/img/research/file-upload-server/';
-                    $('#fileupload').fileupload({
-                        url: url,
-                        dataType: 'json',
-                        done: function (e, data) {
-                            $.each(data.result.files, function (index, file) {
-                                $('<p/>').text(file.name).appendTo('#files');
-                            });
-                        },
-                        progressall: function (e, data) {
-                            var progress = parseInt(data.loaded / data.total * 100, 10);
-                            $('#progress .progress-bar').css(
-                                'width',
-                                progress + '%'
-                            );
-                        }
-                    }).prop('disabled', !$.support.fileInput)
-                        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-                });
+                loadjscssfile("<?=base_url();?>assets/js/admin-research.js", "js");
             });
             break;
     }

@@ -39,7 +39,7 @@
     }
 }
 
-.fix-btn-position {
+.fix-btn-position { 
     margin-top: 20px;
 }
 
@@ -50,4 +50,13 @@
 form label.col-md-3 {
     padding-top: 7px;
     padding-left: 25px;
+}
+
+.trash-btn {
+    cursor: pointer;
+    color: #AAA;
+}
+.trash-btn:hover {
+    cursor: pointer;
+    color: #111;
 }

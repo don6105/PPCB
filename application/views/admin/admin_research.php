@@ -4,6 +4,14 @@ if($this->session->userdata('m_permission')!='admin') {
 }
 ?>
 <link href="<?=base_url();?>assets/css/admin-research.css" rel="stylesheet">
+<link href="<?=base_url();?>assets/vendor/jquery/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet">
+<link href="<?=base_url();?>assets/vendor/jquery/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet">
+<noscript>
+    <link href="<?=base_url();?>assets/vendor/jquery/jquery-file-upload/css/jquery.fileupload-noscript.css" rel="stylesheet">
+</noscript>
+<noscript>
+    <link href="<?=base_url();?>assets/vendor/jquery/jquery-file-upload/css/jquery.fileupload-ui-noscript.css" rel="stylesheet">
+</noscript>
 
 <div class="container-fluid">
     <div class="row">
@@ -83,7 +91,7 @@ if($this->session->userdata('m_permission')!='admin') {
                         <br>
                         <!-- The global progress bar -->
                         <div id="progress" class="progress">
-                            <div class="progress-bar progress-bar-success"></div>
+                            <div class="progress-bar progress-bar-primary progress-bar-striped"></div>
                         </div>
                         <!-- The container for the uploaded files -->
                         <div id="files" class="files"></div>
