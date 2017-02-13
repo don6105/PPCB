@@ -39,7 +39,26 @@ class Admin extends CI_Controller {
 
     public function research() {
         $this->load->view('admin/admin_nav');
-        $this->load->view('admin/admin_research');
+        $this->load->view('admin/admin_research1');
+
+        $data = $this->research_model->get_research('achievement');
+        if($data)
+            for($i=0; $i<count($data); $i++)
+                $this->parser->parse('admin/template/research_template', $data[$i]);
+        $this->load->view('admin/admin_research2');
+
+        $data = $this->research_model->get_research('conference');
+        if($data)
+            for($i=0; $i<count($data); $i++)
+                $this->parser->parse('admin/template/research_template', $data[$i]);
+        $this->load->view('admin/admin_research3');
+
+        $data = $this->research_model->get_research('journal');
+        if($data)
+            for($i=0; $i<count($data); $i++)
+                $this->parser->parse('admin/template/research_template', $data[$i]);
+            
+        $this->load->view('admin/admin_research4');
         $this->load->view('admin/admin_footer');
     }
 

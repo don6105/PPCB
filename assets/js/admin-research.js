@@ -69,6 +69,8 @@ $(function () {
                                 $('<h5>').text($('[name="input_organization"]').val())
                             ).append(
                                 $('<h5>').text($('[name="input_keyword"]').val())
+                            ).append(
+                                $('<h5>').text($('[name="input_description"]').val())
                             );
                     var paper = $('<div class="col-md-12 paper">').attr('id', obj.id);
                     paper.append(
@@ -84,18 +86,33 @@ $(function () {
                             if(obj.result.indexOf('Success') > -1) {
                                 $('#'+id).fadeOut(1000, function() { $(this).remove(); });
                             } else {
-                                $('#'+id).fadeOut(1000, function() { $(this).remove(); });
+                                $('#'+id).fadeOut(700, function() { $(this).fadeIn(700); });
                             }
                         });
                     });
                     // reset form
-                    // $('#new_research_form').trigger('reset');
-                    // $('#files').html('');
+                    $('#new_research_form').trigger('reset');
+                    $('#files').html('');
+                    setTimeout(function() {
+                        $('#new_research_modal').modal('toggle');
+                    }, 800);
                 } else {
 
                 }
             });
         }
+    });
+
+    $('.remove-btn').on('click', function() {
+        var id = $(this).parent('.paper').attr('id');
+        $.post(site_url+'/trash_research', {id: id}, function(data) {
+            var obj = JSON && JSON.parse(data) || $.parseJSON(data);
+            if(obj.result.indexOf('Success') > -1) {
+                $('#'+id).fadeOut(1000, function() { $(this).remove(); });
+            } else {
+                $('#'+id).fadeOut(700, function() { $(this).fadeIn(700); });
+            }
+        });
     });
 });
 

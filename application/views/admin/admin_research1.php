@@ -40,44 +40,44 @@ if($this->session->userdata('m_permission')!='admin') {
                             <select class="form-control" name="input_type">
                                 <option value="achievement">Achievement</option>
                                 <option value="conference">Conference</option>
-                                <option value="jounel">Journal</option>
+                                <option value="journal">Journal</option>
                             </select>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Title</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_title" placeholder="Paper Title" value="Building a Powerful and Energy-efficient Computing Platform with NVIDIA Jetson TK1 and its Applications.">
+                            <input type="text" class="form-control" name="input_title" placeholder="Paper Title">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Author</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_author" placeholder="Paper Author" value="Jin Ye, Chun-Yuan Lin.">
+                            <input type="text" class="form-control" name="input_author" placeholder="Paper Author">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Date</label>
                         <label class="col-md-9">
-                            <input type="date" class="form-control" name="input_date" placeholder="Public Date(YYYY/MM/DD)" value="2016-11-05">
+                            <input type="date" class="form-control" name="input_date" placeholder="Public Date(YYYY/MM/DD)">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Organization</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_organization" placeholder="Public Organization" value="ChangGung University">
+                            <input type="text" class="form-control" name="input_organization" placeholder="Public Organization">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Keyword</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_keyword" placeholder="Keyword" value="CUDA, NVIDIA Jetson TK1.">
+                            <input type="text" class="form-control" name="input_keyword" placeholder="Keyword">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center textarea-label">Description</label>
                         <label class="col-md-9">
-                            <textarea class="form-control" rows="5" name="input_description" placeholder="Description">123</textarea>
+                            <textarea class="form-control" rows="5" name="input_description" placeholder="Description"></textarea>
                         </label>
                     </div>
                     <div class="col-md-12">
@@ -85,7 +85,7 @@ if($this->session->userdata('m_permission')!='admin') {
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>Select files...</span>
                             <!-- The file input field used as target for the file upload widget -->
-                            <input id="fileupload" type="file" name="files[]" multiple>
+                            <input id="fileupload" type="file" name="files[]" accept="image/*" multiple>
                         </span>
                         <br>
                         <br>
@@ -139,15 +139,4 @@ if($this->session->userdata('m_permission')!='admin') {
             <!-- tab content -->
             <div class="tab-content">
                 <div id="achievement" class="tab-pane fade in active">
-                    <p>Achievement</p>
-                </div>
-                <div id="conference" class="tab-pane fade">
-                    <p>Conference</p>
-                </div>
-                <div id="journals" class="tab-pane fade">
-                    <p>Journal</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    

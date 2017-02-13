@@ -5,6 +5,28 @@ class Research_model extends CI_Model {
         $this->load->database();
     }
  
+    public function get_research($r_type) {
+        $this->db->where('r_type', $r_type);
+        $this->db->order_by("r_id", "asc");
+        $query = $this->db->get('research');
+        if ($query->num_rows() > 0) {
+            $data = $query->result_array();
+            for($i=0; $i<count($data); $i++) {
+                $r_id = $data[$i]['r_id'];
+                $this->db->select('ri_img');
+                $this->db->where('ri_research', $r_id);
+                $query2 = $this->db->get('research_img');
+                $data[$i]['r_imgs'] = array();
+                foreach ($query2->result() as $row) {
+                    array_push($data[$i]['r_imgs'], array('r_img' => $row->ri_img));
+                }
+            }
+            return $data;
+        } else {
+            return false;
+        }
+    }
+
     public function new_research($type, $title, $author, $date, $organization, $keyword, $description) {
         $data = array(
             'r_type'        => $type,
@@ -43,6 +65,7 @@ class Research_model extends CI_Model {
         if($r and $this->db->affected_rows()>0) {
             // search img and delete img files
             $this->db->select('ri_img');
+            $this->db->where('ri_research', $id);
             $this->db->order_by("ri_id", "asc");
             $query = $this->db->get('research_img');
             if ($query->num_rows() > 0) {
@@ -53,11 +76,8 @@ class Research_model extends CI_Model {
             array_map('unlink', glob(getcwd().'/assets/img/research/tmp/thumbnail/*.*'));
             // delete data from research_img table
             $this->db->where('ri_research', $id);
-            $rr = $this->db->delete('research_img');
-            if($rr and $this->db->affected_rows()>0) {
-                return array('result' => 'Success');
-            }
-            return array('result' => 'Failed');
+            $this->db->delete('research_img');
+            return array('result' => 'Success');
         } else {
             return array('result' => 'Failed');
         }
