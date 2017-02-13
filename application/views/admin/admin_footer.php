@@ -53,12 +53,6 @@
             loadjscssfile("<?=base_url();?>assets/js/admin-course.js", "js");
             break;
         case "admin/research":
-            // jquery datepicker
-            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-ui/jquery-ui.min.css", "css");
-            loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-ui/jquery-ui.min.js", "js", function() {
-                $("[name='input_date']").datepicker( {showButtonPanel: true} );
-                $("[name='input_date']").datepicker( "option", "dateFormat", "yy/mm/dd" );
-            });
             // jquery file upload
             loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/css/jquery.fileupload.css", "css");
             loadjscssfile("<?=base_url();?>assets/vendor/jquery/jquery-file-upload/js/vendor/jquery.ui.widget.js", "js");

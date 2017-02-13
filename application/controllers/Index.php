@@ -35,7 +35,7 @@ class Index extends CI_Controller {
         }
 		$this->load->view('course2');
         // Gallery
-        $this->load->view('gallery');
+        // $this->load->view('gallery');
         // Bottom nav
         $this->load->view('design');
 		$this->load->view('footer');

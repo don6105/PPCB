@@ -10,6 +10,7 @@ class Admin_ajax extends CI_Controller {
         $this->load->model('admin/member_model');
         $this->load->model('admin/course_model');
         $this->load->model('admin/resume_model');
+        $this->load->model('admin/research_model');
 	}
 
     /************************
@@ -107,6 +108,7 @@ class Admin_ajax extends CI_Controller {
         else echo 'Failed';
     }
 
+
     /************************
      *                      *
      *  Resume AJAX Action  *
@@ -130,6 +132,30 @@ class Admin_ajax extends CI_Controller {
 
         $r = $this->resume_model->get_resume($m_id);
         echo $r;
+    }
+
+
+    /************************
+     *                      *
+     *  Login AJAX Action   *
+     *                      *
+     ************************/
+    public function new_research() {
+        $type         = $this->input->post('input_type');
+        $title        = $this->input->post('input_title');
+        $author       = $this->input->post('input_author');
+        $date         = $this->input->post('input_date');
+        $organization = $this->input->post('input_organization');
+        $keyword      = $this->input->post('input_keyword');
+        $description  = $this->input->post('input_description');
+        $r = $this->research_model->new_research($type, $title, $author, $date, $organization, $keyword, $description);
+        echo json_encode($r);
+    }
+
+    public function trash_research() {
+        $id = $this->input->post('id');
+        $r = $this->research_model->trash_research($id);
+        echo json_encode($r);
     }
 
 }

@@ -33,11 +33,13 @@
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i> Course
                     </a>
                 </li>
-                <li>
+               <!--  
+               <li>
                     <a class="page-scroll" href="#gallery">
                         <i class="fa fa-file-picture-o" aria-hidden="true"></i> Gallery
                     </a>
-                </li>
+                </li> 
+                -->
             </ul>
         </div>
         <!-- /.navbar-collapse -->

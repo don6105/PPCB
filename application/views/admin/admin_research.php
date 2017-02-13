@@ -37,47 +37,47 @@ if($this->session->userdata('m_permission')!='admin') {
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Type</label>
                         <label class="col-md-9">
-                            <select class="form-control" name="type_input">
-                                <option>Achievement</option>
-                                <option>Conference</option>
-                                <option>Journal</option>
+                            <select class="form-control" name="input_type">
+                                <option value="achievement">Achievement</option>
+                                <option value="conference">Conference</option>
+                                <option value="jounel">Journal</option>
                             </select>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Title</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_title" placeholder="Paper Title">
+                            <input type="text" class="form-control" name="input_title" placeholder="Paper Title" value="Building a Powerful and Energy-efficient Computing Platform with NVIDIA Jetson TK1 and its Applications.">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Author</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_author" placeholder="Paper Author">
+                            <input type="text" class="form-control" name="input_author" placeholder="Paper Author" value="Jin Ye, Chun-Yuan Lin.">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Date</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_date" placeholder="Public Date">
+                            <input type="date" class="form-control" name="input_date" placeholder="Public Date(YYYY/MM/DD)" value="2016-11-05">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Organization</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_organization" placeholder="Public Organization">
+                            <input type="text" class="form-control" name="input_organization" placeholder="Public Organization" value="ChangGung University">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center">Keyword</label>
                         <label class="col-md-9">
-                            <input type="text" class="form-control" name="input_keyword" placeholder="Keyword">
+                            <input type="text" class="form-control" name="input_keyword" placeholder="Keyword" value="CUDA, NVIDIA Jetson TK1.">
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label class="col-md-3 text-center textarea-label">Description</label>
                         <label class="col-md-9">
-                            <textarea class="form-control" rows="5" name="input_description" placeholder="Description"></textarea>
+                            <textarea class="form-control" rows="5" name="input_description" placeholder="Description">123</textarea>
                         </label>
                     </div>
                     <div class="col-md-12">
