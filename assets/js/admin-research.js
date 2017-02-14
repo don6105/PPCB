@@ -94,13 +94,24 @@ $(function () {
                     $('#new_research_form').trigger('reset');
                     $('#files').html('');
                     setTimeout(function() {
-                        $('#new_research_modal').modal('toggle');
+                        $('#new_research_modal').modal('hide');
                     }, 800);
                 } else {
 
                 }
             });
         }
+    });
+
+    $('#new_cancel_btn').on('click', function() {
+        $.post(site_url+'/clean_img', function(data) {
+            var obj = JSON && JSON.parse(data) || $.parseJSON(data);
+            if(obj.result.indexOf('Success') > -1) {
+                $('#new_research_form').trigger('reset');
+                $('#files').html('');
+                $('#new_research_modal').modal('hide');
+            }
+        });
     });
 
     $('.remove-btn').on('click', function() {

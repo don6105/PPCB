@@ -4,7 +4,7 @@ class Research_model extends CI_Model {
     public function __construct() {
         $this->load->database();
     }
- 
+
     public function get_research($r_type) {
         $this->db->where('r_type', $r_type);
         $this->db->order_by("r_id", "asc");
@@ -73,7 +73,7 @@ class Research_model extends CI_Model {
                     @ unlink(getcwd().'/'.$row->ri_img);
                 }
             }
-            array_map('unlink', glob(getcwd().'/assets/img/research/tmp/thumbnail/*.*'));
+            @ array_map('unlink', glob(getcwd().'/assets/img/research/tmp/thumbnail/*.*'));
             // delete data from research_img table
             $this->db->where('ri_research', $id);
             $this->db->delete('research_img');
@@ -81,6 +81,11 @@ class Research_model extends CI_Model {
         } else {
             return array('result' => 'Failed');
         }
+    }
+
+    public function clean_tmp_img() {
+        @ array_map('unlink', glob(getcwd().'/assets/img/research/tmp/*.*'));
+        return array('result' => 'Success');
     }
 }
 ?>

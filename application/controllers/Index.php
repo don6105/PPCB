@@ -8,6 +8,7 @@ class Index extends CI_Controller {
         $this->load->library('parser');
         $this->load->model('course_model');
         $this->load->model('member_model');
+        $this->load->model('research_model');
 
 		$this->load->view('header');
 		$this->load->view('nav');
@@ -26,7 +27,10 @@ class Index extends CI_Controller {
         $this->parser->parse('template/student_template', $data3);
         $this->load->view('member2');
         // Research
-		$this->load->view('research');
+
+        $data = $this->research_model->get_researchs();
+        $this->parser->parse('template/research_template', $data);
+
         // Course
         $this->load->view('course1');
         $data = $this->course_model->get_course();

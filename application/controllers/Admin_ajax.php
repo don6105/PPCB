@@ -158,4 +158,9 @@ class Admin_ajax extends CI_Controller {
         echo json_encode($r);
     }
 
+    public function clean_img() {
+        $r = $this->research_model->clean_tmp_img();
+        echo json_encode($r);
+    }
+
 }
