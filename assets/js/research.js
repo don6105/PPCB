@@ -16,7 +16,7 @@ $( document ).ready(function() {
                     ).append(
                         $('<p>').html(obj.data.r_keyword)
                     ).append(
-                        $('<p>').html(obj.data.r_description+'<br><br><br>22<br><br><br>123<br><br><br>')
+                        $('<p>').html(obj.data.r_description)
                     );
                 // paper image thumnail
                 if(obj.imgs.length>0) {
