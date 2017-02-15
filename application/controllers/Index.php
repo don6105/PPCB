@@ -26,8 +26,8 @@ class Index extends CI_Controller {
         $this->parser->parse('template/student_template', $data2);
         $this->parser->parse('template/student_template', $data3);
         $this->load->view('member2');
-        // Research
 
+        // Research
         $data = $this->research_model->get_researchs();
         $this->parser->parse('template/research_template', $data);
 

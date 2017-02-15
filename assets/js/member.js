@@ -1,6 +1,5 @@
 function get_resume_data(id) {
-    $('#resume_content').html('');
-	$("#resume_content").removeClass("text-center");
+    $('#resume_content').html('').removeClass("text-center");
     $.post(site_url+"/get_resume", {id: id}, function(data) {
         var obj = JSON && JSON.parse(data) || $.parseJSON(data);
         if(obj.result.indexOf("Success")>-1) {

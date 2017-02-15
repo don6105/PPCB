@@ -11,7 +11,7 @@ class Research_model extends CI_Model {
         foreach ($r_type as $key => $value) {
             $this->db->select('*');
             $this->db->from('research');
-            $this->db->join('research_img', 'research.r_id = research_img.ri_research');
+            $this->db->join('research_img', 'research.r_id = research_img.ri_research', 'left');
             $this->db->where('r_type', $value);
             $this->db->group_by("research_img.ri_research");
 
@@ -30,8 +30,8 @@ class Research_model extends CI_Model {
         // get paper detail
         $this->db->where('r_id', $r_id);
         $query = $this->db->get('research');
-        if ($query->num_rows() > 0) {
-            $data['data'] = $query->result_array();
+        if ($query->num_rows() == 1) {
+            $data['data'] = $query->result_array()[0];
 
             //get paper img
             $this->db->select('ri_img');

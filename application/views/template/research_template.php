@@ -12,23 +12,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-xm-12 col-md-5 text-center">
-                            <img src="<?=base_url('assets/img/research/paper1.png')?>" class="display-img">
-                        </div>
+                        <div id="display-box" class="col-xm-12 col-md-5 text-center"></div>
                         <div class="col-xs-12 col-md-7">
                             <div id="info-content" class="content-box">
-                                Paper information
-                                <p>Jin Ye, Chun-Yuan Lin. Building a Powerful and Energy-efficient Computing Platform with NVIDIA Jetson TK1 and its Applications</p>
-                                <p></p>
-                                <p>2016 Nov 05</p>
-                                <p style="color: purple;">Fill in information of paper</p>
-                                <br><br>test
                             </div>
-                            <div class="col-xs-12 thumbnail-box">
+                            <div id="thumbnail-box" class="col-xs-12 thumbnail-box">
                                 <img src="<?=base_url('assets/img/research/paper1.png')?>" class="thumbnail-img">
-                                <img src="<?=base_url('assets/img/research/paper1-result.png')?>" class="thumbnail-img">
-                                <img src="<?=base_url('assets/img/research/paper1-result.png')?>" class="thumbnail-img">
-                                <img src="<?=base_url('assets/img/research/paper1-result.png')?>" class="thumbnail-img">
                             </div>
                         </div>
                     </div>
@@ -58,7 +47,7 @@
                         <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
                             <div class="panel-body">
                                 {achievement}
-                                <div class="paper-group">
+                                <div class="paper-group" id="r_{r_id}">
                                     <div class="col-xs-12 col-sm-4 col-md-4">
                                         <div class="thumbnail">
                                             <img src="<?=base_url('assets/img/research/paper1.png')?>" alt="#">
