@@ -29,9 +29,6 @@ class Index extends CI_Controller {
 
         // Research
         $data = $this->research_model->get_researchs();
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
         $this->parser->parse('template/research_template', $data);
 
         // Course
