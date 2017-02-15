@@ -50,7 +50,7 @@
                                 <div class="paper-group" id="r_{r_id}">
                                     <div class="col-xs-12 col-sm-4 col-md-4">
                                         <div class="thumbnail">
-                                            <img src="<?=base_url('assets/img/research/paper1.png')?>" alt="#">
+                                            <img src="<?=base_url('{ri_img}')?>" alt="#">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-8 col-md-8 paper-text-box">
