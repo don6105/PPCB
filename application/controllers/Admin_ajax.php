@@ -92,7 +92,7 @@ class Admin_ajax extends CI_Controller {
         $name = $this->input->post('name');
         $link = $this->input->post('link');
 
-        $r = $this->course_model->new_course($name, $year, $link);
+        $r = $this->course_model->new_course($year, $name, $link);
         if($r > 0)
             $r = array('result' => 'Success', 'id' => $r);
         else

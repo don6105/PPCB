@@ -1,6 +1,6 @@
 <section class="bg-dark" id="research">
 
-<!-- Modal -->
+    <!-- Modal -->
     <div id="paper_modal" class="modal fade-scale" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -17,7 +17,7 @@
                             <div id="info-content" class="content-box">
                             </div>
                             <div id="thumbnail-box" class="col-xs-12 thumbnail-box">
-                                <img src="<?=base_url('assets/img/research/paper1.png')?>" class="thumbnail-img">
+                                <img src="<?=base_url('{ri_img}')?>" class="thumbnail-img">
                             </div>
                         </div>
                     </div>
@@ -73,10 +73,10 @@
                         <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
                             <div class="panel-body">
                                 {conference}
-                                <div class="paper-group">
+                                <div class="paper-group" id="r_{r_id}">
                                     <div class="col-xs-12 col-sm-4 col-md-4">
                                         <div class="thumbnail">
-                                            <img src="<?=base_url('assets/img/research/paper1.png')?>" alt="#">
+                                            <img src="<?=base_url('{ri_img}')?>" alt="#">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-8 col-md-8 paper-text-box">
@@ -99,10 +99,10 @@
                         <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
                             <div class="panel-body">
                                 {journal}
-                                <div class="paper-group">
+                                <div class="paper-group" id="r_{r_id}">
                                     <div class="col-xs-12 col-sm-4 col-md-4">
                                         <div class="thumbnail">
-                                            <img src="<?=base_url('assets/img/research/paper1.png')?>" alt="#">
+                                            <img src="<?=base_url('{ri_img}')?>" alt="#">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-8 col-md-8 paper-text-box">

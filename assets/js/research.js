@@ -16,7 +16,7 @@ $( document ).ready(function() {
                     ).append(
                         $('<p>').html(obj.data.r_keyword)
                     ).append(
-                        $('<p>').html(obj.data.r_description)
+                        $('<p>').html(obj.data.r_description).addClass('paper-justify')
                     );
                 // paper image thumnail
                 if(obj.imgs.length>0) {

@@ -7,7 +7,7 @@ class Research_model extends CI_Model {
 
     public function get_research($r_type) {
         $this->db->where('r_type', $r_type);
-        $this->db->order_by("r_id", "asc");
+        $this->db->order_by("r_publicdate", "desc");
         $query = $this->db->get('research');
         if ($query->num_rows() > 0) {
             $data = $query->result_array();
@@ -15,11 +15,13 @@ class Research_model extends CI_Model {
                 $r_id = $data[$i]['r_id'];
                 $this->db->select('ri_img');
                 $this->db->where('ri_research', $r_id);
+                $this->db->order_by('ri_id', 'ASC');
                 $query2 = $this->db->get('research_img');
                 $data[$i]['r_imgs'] = array();
                 foreach ($query2->result() as $row) {
                     array_push($data[$i]['r_imgs'], array('r_img' => $row->ri_img));
-                }
+		}
+		$data[$i]['r_description'] = nl2br($data[$i]['r_description']);
             }
             return $data;
         } else {
@@ -42,6 +44,8 @@ class Research_model extends CI_Model {
             $r_id  = $this->db->insert_id();
             $path  = 'assets/img/research/';
             $files = array_diff(scandir($path.'tmp', 1), array('..', '.', 'thumbnail'));
+            usort($files, function($a, $b){ return filemtime('assets/img/research/tmp/'.$a) < filemtime('assets/img/research/tmp/'.$b); });
+            $files = array_reverse($files);
             $imgs  = array();
             foreach ($files as $key => $value) {
                 $this->db->set('ri_research', $r_id);

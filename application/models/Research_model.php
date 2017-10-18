@@ -14,6 +14,7 @@ class Research_model extends CI_Model {
             $this->db->join('research_img', 'research.r_id = research_img.ri_research', 'left');
             $this->db->where('r_type', $value);
             $this->db->group_by("research_img.ri_research");
+	    $this->db->order_by('research.r_publicdate, max(research_img.ri_id)', 'DESC');
 
             $query = $this->db->get();
             if ($query->num_rows() > 0)
@@ -41,10 +42,11 @@ class Research_model extends CI_Model {
                 foreach ($query2->result() as $row) {
                     array_push($imgs, $row->ri_img);
                 }
-                $data['imgs'] = $imgs;
+		$data['imgs'] = $imgs;
             } else {
                 $data['imgs'] = '';
-            }
+	    }
+	    $data['data']['r_description'] = nl2br($data['data']['r_description']);
             $data['result'] = 'Success';
         } else {
             $data['result'] = 'Failed';

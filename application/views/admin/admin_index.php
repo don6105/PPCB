@@ -11,7 +11,7 @@
 
     <div class="row text-center">
         <div class="col-md-12">
-            <h1>Wellcome to PPCB Admin</h1>
+            <h1>Welcome to PPCB Admin</h1>
         </div>
         <div class="col-md-12">
             <!--
